@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Fittrade</string>
+    <string name="title">Welcome To our Community.</string>
+    <string name="sub_title">"       Good Health is above Wealth"</string>
+    <string name="btn_signup">Sign UP</string>
+    <string name="btn_login">login</string>
+    <string name="login_to_app">Create an Account</string>
+    <string name="your_user_name">Enter user_name</string>
+
+</resources>
