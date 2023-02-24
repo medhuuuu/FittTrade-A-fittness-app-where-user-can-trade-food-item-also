@@ -3,9 +3,9 @@ package com.example.fittrade
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class BMI_calculation : AppCompatActivity() {
+class Choose_prog : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bmi_calculation)
+        setContentView(R.layout.activity_choose_prog)
     }
 }
