@@ -15,19 +15,16 @@ class BMI_calculation : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.button.setOnClickListener {
-            calculatebmi()
+            val height = binding.height.toString()
+            val dobheight= height.toDouble()
+            val weight= binding.weight.toString()
+            val dobweight = weight.toDouble()
+            val bmi= dobweight/(dobheight * dobheight)
+
+            binding.res.text = String.format("your bmi is : %.2f", bmi)
         }
 
     }
-    private fun calculatebmi()
-    {
-        val height = binding.height.toString()
-        val dobheight= height.toDouble()
-        val weight= binding.weight.toString()
-        val dobweight = weight.toDouble()
-        val bmi= dobweight/(dobheight * dobheight)
 
-        binding.res.text = bmi.toString()
-    }
 
 }
