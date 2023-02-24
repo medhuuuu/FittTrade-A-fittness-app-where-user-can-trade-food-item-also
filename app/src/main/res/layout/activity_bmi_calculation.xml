@@ -40,11 +40,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_height"
+        android:id="@+id/height"
         style="@style/textinputlayout"
         android:layout_width="340dp"
         android:layout_height="50dp"
-        android:hint="Enter Your Height"
+        android:hint="Enter Your Height in Met"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,11 +60,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/weight"
         style="@style/textinputlayout"
         android:layout_width="340dp"
         android:layout_height="50dp"
-        android:hint="Enter yout Weight"
+        android:hint="Enter yout Weight in KG"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
@@ -74,14 +74,14 @@
         app:startIconDrawable="@drawable/weight2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
+            android:id="@+id/et_weight"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+    <Button
+        android:id="@+id/button"
         android:layout_width="280dp"
         android:layout_height="44dp"
         android:background="@color/DarkTurquoise"
@@ -93,5 +93,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.736" />
+
+    <TextView
+        android:id="@+id/res"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+
+        android:layout_marginBottom="88dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
