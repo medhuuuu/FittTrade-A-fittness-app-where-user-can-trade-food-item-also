@@ -105,7 +105,7 @@
             android:id="@+id/et_pass"
             style="@style/textedit"
             android:layout_width="match_parent"
-            android:layout_height="64dp" />
+            android:layout_height="52dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -138,7 +138,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_user"
             style="@style/textedit"
-            android:layout_width="385dp"
+            android:layout_width="340dp"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,9 +158,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_conpass"
             style="@style/textedit"
-            android:layout_width="385dp"
+            android:layout_width="340dp"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
