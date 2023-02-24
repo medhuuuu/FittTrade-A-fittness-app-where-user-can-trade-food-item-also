@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "323133175185",
+    "project_id": "fitttrade-40fe4",
+    "storage_bucket": "fitttrade-40fe4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323133175185:android:5a7a56bc366460155ed630",
+        "android_client_info": {
+          "package_name": "com.example.fittrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323133175185-4u4rkkku5obct2e1m1kh6omqt1akhb9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNpu3LjfyiEvAM8votJ54M0YznfZ6cXpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323133175185-4u4rkkku5obct2e1m1kh6omqt1akhb9c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
