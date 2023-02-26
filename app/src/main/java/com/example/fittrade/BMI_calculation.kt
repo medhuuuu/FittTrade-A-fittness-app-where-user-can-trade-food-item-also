@@ -1,5 +1,6 @@
 package com.example.fittrade
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
@@ -29,8 +30,16 @@ class BMI_calculation : AppCompatActivity() {
         val weight = weightStr.toFloat()
 
         val bmi = weight / (height * height)
-        val display = bmi.toString()
-        binding.res.text = display
+        val bmivalue = bmi.toInt()
+
+
+        val display = String.format("%.2f", bmi)
+
+        val intent = Intent(this, BMI_display::class.java)
+        intent.putExtra("firstbmi", display)
+        intent.putExtra("value", bmivalue)
+        startActivity(intent)
+
     }
 
 

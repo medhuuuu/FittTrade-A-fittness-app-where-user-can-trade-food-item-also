@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Fittrade"
         tools:targetApi="31">
         <activity
+            android:name=".BMI_display"
+            android:exported="false" />
+        <activity
             android:name=".Choose_prog"
             android:exported="false" />
         <activity
