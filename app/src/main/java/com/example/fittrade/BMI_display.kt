@@ -1,5 +1,6 @@
 package com.example.fittrade
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -33,7 +34,9 @@ class BMI_display : AppCompatActivity() {
             binding.txtmessage.text = "You are Skinny"
         }
 
-
+        binding.nxtbtn.setOnClickListener {
+            startActivity(Intent(this, Choose_prog::class.java))
+        }
 
 
 

@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@color/gray_light"
+
     android:padding="20dp"
     tools:context="RegisterActivity">
 
-    <TextView
+
+      <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +27,7 @@
         app:layout_constraintVertical_bias="0.058"
         tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.textfield.TextInputLayout
+      <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_email"
         style="@style/textinputlayout"
         android:layout_width="340dp"
@@ -44,9 +47,9 @@
             style="@style/textedit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_user"
         style="@style/textinputlayout"
         android:layout_width="340dp"
@@ -62,14 +65,14 @@
         app:startIconDrawable="@drawable/guestmale"
         tools:ignore="MissingConstraints">
 
-        <com.google.android.material.textfield.TextInputEditText
+       <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_user"
             style="@style/textedit"
             android:layout_width="340dp"
             android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_phone"
         style="@style/textinputlayout"
         android:layout_width="340dp"
@@ -87,9 +90,9 @@
             style="@style/textedit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_place"
         style="@style/textinputlayout"
         android:layout_width="340dp"
@@ -106,10 +109,10 @@
             style="@style/textedit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <androidx.appcompat.widget.AppCompatButton
+       <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/mainsignButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -122,7 +125,7 @@
         app:layout_constraintTop_toTopOf="@+id/til_pass"
         tools:layout_editor_absoluteX="24dp" />
 
-    <com.google.android.material.textfield.TextInputLayout
+      <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_pass"
         style="@style/textinputlayout"
         android:layout_width="340dp"
@@ -139,9 +142,9 @@
             style="@style/textedit"
             android:layout_width="match_parent"
             android:layout_height="52dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_conpass"
         style="@style/textinputlayout"
         android:layout_width="340dp"
@@ -159,9 +162,10 @@
             style="@style/textedit"
             android:layout_width="340dp"
             android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
