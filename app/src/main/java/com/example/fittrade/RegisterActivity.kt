@@ -18,6 +18,7 @@ class RegisterActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.mainsignButton.setOnClickListener {
+
             val userName = binding.etUser.text.toString()
             val email = binding.etEmail.text.toString()
             val pass = binding.etPass.text.toString()
@@ -49,10 +50,12 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-   override fun onStart() {
-        super.onStart()
-        if(firebaseAuth.currentUser != null){
-            startActivity(Intent(this, BMI_calculation::class.java))
-        }
-    }
+//   override fun onStart() {
+//        super.onStart()
+//        if(firebaseAuth.currentUser != null){
+//            startActivity(Intent(this, LoginActivity::class.java))
+//        }
+//   }
+
+
 }
