@@ -3,6 +3,7 @@ package com.example.fittrade
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.Toast
 import com.example.fittrade.databinding.ActivityBmiCalculationBinding
 
 
@@ -15,19 +16,22 @@ class BMI_calculation : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.button.setOnClickListener {
-            calculateBMI()
+           calculateBMI()
         }
 
     }
-    private fun calculateBMI(){
-        val height = binding.height.toString()
-        val h= height.toFloat()
 
-        val weight= binding.weight.toString()
-        val w = weight.toFloat()
-        val bmi= w/(h * h)
-        val dispaly = bmi.toString()
-        binding.res.text = dispaly
+    private fun calculateBMI() {
+        val heightStr = binding.etHeight.text.toString()
+        val height = heightStr.toFloat()
+
+        val weightStr = binding.etWeight.text.toString()
+        val weight = weightStr.toFloat()
+
+        val bmi = weight / (height * height)
+        val display = bmi.toString()
+        binding.res.text = display
     }
+
 
 }

@@ -63,9 +63,9 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_place"
+            android:id="@+id/et_user"
             style="@style/textedit"
-            android:layout_width="match_parent"
+            android:layout_width="340dp"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,11 +102,10 @@
         tools:layout_editor_absoluteX="2dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_pass"
+            android:id="@+id/et_place"
             style="@style/textedit"
             android:layout_width="match_parent"
-            android:layout_height="52dp" />
-
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -136,10 +135,10 @@
         tools:layout_editor_absoluteX="5dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_user"
+            android:id="@+id/et_pass"
             style="@style/textedit"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="52dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

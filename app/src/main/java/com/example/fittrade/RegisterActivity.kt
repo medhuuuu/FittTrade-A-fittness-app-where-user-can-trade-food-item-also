@@ -25,7 +25,9 @@ class RegisterActivity : AppCompatActivity() {
             val phnNo = binding.etPhone.text.toString()
             val place = binding.etPlace.text.toString()
 
+
             if(userName.isNotEmpty() && phnNo.isNotEmpty() && place.isNotEmpty() && email.isNotEmpty() && pass.isNotEmpty() && conPass.isNotEmpty()){
+
                 if (pass == conPass){
                     firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener {
                         if (it.isSuccessful){
@@ -37,7 +39,7 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }
                 else{
-                    Toast.makeText(this , "Password is not matching" , Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this , "Password is not matching $pass and $conPass" , Toast.LENGTH_SHORT).show()
                 }
             }
             else{
@@ -47,10 +49,10 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-   /* override fun onStart() {
+   override fun onStart() {
         super.onStart()
         if(firebaseAuth.currentUser != null){
             startActivity(Intent(this, BMI_calculation::class.java))
         }
-    }*/
+    }
 }
