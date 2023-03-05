@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Choose_prog"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp">
+   android:paddingRight="20dp"
+    android:id="@+id/drawyerLayout">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="365dp"
+        android:layout_height="58dp"
+        android:id="@+id/exercise"
         android:layout_marginBottom="544dp"
         android:background="@color/LightSeaGreen"
 
@@ -21,8 +26,9 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="365dp"
+        android:layout_height="58dp"
+        android:id="@+id/food"
         android:layout_marginBottom="472dp"
         android:background="@color/LightSeaGreen"
 
@@ -30,24 +36,30 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="396dp"
+        android:layout_width="365dp"
+        android:layout_height="58dp"
+        android:id="@+id/doctor"
+        android:layout_marginBottom="388dp"
         android:background="@color/LightSeaGreen"
 
         android:text="consult expert"
-        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+   <com.google.android.material.navigation.NavigationView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/navView"
+       app:menu="@menu/navugation_menu"
+       app:headerLayout="@layout/navigation_header"
+       android:layout_gravity="start"
+       android:fitsSystemWindows="true"/>
+</androidx.drawerlayout.widget.DrawerLayout>

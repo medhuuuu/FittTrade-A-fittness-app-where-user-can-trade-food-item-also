@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Fittrade"
         tools:targetApi="31">
         <activity
+            android:name=".exercise_provide"
+            android:exported="false" />
+        <activity
             android:name=".BMI_display"
             android:exported="false" />
         <activity
@@ -34,7 +37,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Fittrade_mainpage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -30,8 +30,12 @@ class BMI_display : AppCompatActivity() {
         else if (bmistr>18){
             binding.txtmessage.text = "You are Healthy"
         }
-        else if (bmistr<18){
+        else if (bmistr<18 && bmistr>5){
             binding.txtmessage.text = "You are Skinny"
+        }
+        else{
+            binding.txtmessage.text= "First Input height and weight"
+
         }
 
         binding.nxtbtn.setOnClickListener {

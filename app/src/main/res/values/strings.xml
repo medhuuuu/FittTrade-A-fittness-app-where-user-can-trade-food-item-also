@@ -6,5 +6,7 @@
     <string name="btn_login">login</string>
     <string name="login_to_app">Create an Account</string>
     <string name="your_user_name">Enter user_name</string>
+    <string name="open">open</string>
+    <string name="close">Close</string>
 
 </resources>
