@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/firstItem"
+        android:title="Profile"
+        android:icon="@drawable/round_man_24"/>
+    <item
+        android:id="@+id/secondid"
+        android:title="Analyze"
+        android:icon="@drawable/analyze" />
+    <item
+        android:id="@+id/thirditem"
+        android:title="History"
+        android:icon="@drawable/history"
+        />
+    <item
+        android:id="@+id/cal"
+        android:title="Calorie Calculation"
+        android:icon="@drawable/kcal"
+        />
+    <item
+        android:id="@+id/logoutnavi"
+        android:title="Log Out"
+        android:icon="@drawable/baseline_logout_24"
+        />
+
+</menu>
