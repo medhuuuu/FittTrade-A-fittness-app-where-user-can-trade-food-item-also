@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.fittrade.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var databaseReference: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -30,8 +33,14 @@ class RegisterActivity : AppCompatActivity() {
             if(userName.isNotEmpty() && phnNo.isNotEmpty() && place.isNotEmpty() && email.isNotEmpty() && pass.isNotEmpty() && conPass.isNotEmpty()){
 
                 if (pass == conPass){
+
                     firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener {
                         if (it.isSuccessful){
+                            databaseReference = FirebaseDatabase.getInstance().getReference("User")
+                            val user = User(userName, email, phnNo, place)
+                            databaseReference.child(userName).push().setValue(user).addOnSuccessListener {
+                                Toast.makeText(this, "Saved successfully", Toast.LENGTH_SHORT).show()
+                            }
                             startActivity(Intent(this, BMI_calculation::class.java))
                         }
                         else{
@@ -40,7 +49,7 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }
                 else{
-                    Toast.makeText(this , "Password is not matching $pass and $conPass" , Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this , "Password is not matching", Toast.LENGTH_SHORT).show()
                 }
             }
             else{

@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
 import com.example.fittrade.databinding.ActivityBmiCalculationBinding
+import com.google.firebase.database.DatabaseReference
 
 
 class BMI_calculation : AppCompatActivity() {
     private lateinit var binding: ActivityBmiCalculationBinding
+    private lateinit var databaseReference: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityBmiCalculationBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -31,7 +33,6 @@ class BMI_calculation : AppCompatActivity() {
 
         val bmi = weight / (height * height)
         val bmivalue = bmi.toInt()
-
 
         val display = String.format("%.2f", bmi)
 
