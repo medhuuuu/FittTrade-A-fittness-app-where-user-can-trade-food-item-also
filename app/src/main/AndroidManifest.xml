@@ -20,15 +20,11 @@
         <activity
             android:name=".Choose_prog"
             android:exported="false" />
-        <activity
-            android:name=".Choose_program"
-            android:exported="false" />
+
         <activity
             android:name=".BMI_calculation"
             android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
+
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
