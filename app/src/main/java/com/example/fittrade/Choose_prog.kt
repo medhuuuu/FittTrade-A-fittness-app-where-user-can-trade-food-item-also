@@ -6,17 +6,22 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.drawerlayout.widget.DrawerLayout
 import com.example.fittrade.databinding.ActivityChooseProgBinding
-import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class Choose_prog : AppCompatActivity() {
     lateinit var binding: ActivityChooseProgBinding
     lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var firebaseAuth: FirebaseAuth
+
+    private var backPressedTime : Long = 0
+    private var backToast : Toast?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityChooseProgBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        firebaseAuth = FirebaseAuth.getInstance()
 
         binding.exercise.setOnClickListener {
             startActivity(Intent(this, exercise_provide::class.java))
@@ -46,6 +51,11 @@ class Choose_prog : AppCompatActivity() {
                     }
                     R.id.thirditem -> {
                         Toast.makeText(this@Choose_prog, "History", Toast.LENGTH_SHORT).show()
+                    }
+
+                    R.id.logoutnavi -> {
+                        firebaseAuth.signOut()
+                        startActivity(Intent(this@Choose_prog, MainActivity::class.java))
                     }
                 }
                 true
