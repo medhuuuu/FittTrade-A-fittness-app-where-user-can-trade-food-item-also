@@ -4,15 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="@color/gray_light"
-
-    android:padding="20dp"
-    tools:context="RegisterActivity">
+    tools:context=".sellersignup"
+    android:padding="20dp">
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/sellertext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="132dp"
@@ -29,11 +26,11 @@
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_user"
+        android:id="@+id/til_selleruser"
         style="@style/textinputlayout"
         android:layout_width="340dp"
         android:layout_height="50dp"
-        android:hint="@string/your_user_name"
+        android:hint="@string/company_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.436"
@@ -44,7 +41,7 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_user"
+            android:id="@+id/et_selleruser"
             style="@style/textedit"
             android:layout_width="340dp"
             android:layout_height="wrap_content" />
@@ -73,11 +70,8 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
-
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_phone"
+        android:id="@+id/til_sellerphone"
         style="@style/textinputlayout"
         android:layout_width="340dp"
 
@@ -93,14 +87,14 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_phone"
+            android:id="@+id/et_sellerphone"
             style="@style/textedit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_place"
+        android:id="@+id/til_sellerplace"
         style="@style/textinputlayout"
         android:layout_width="340dp"
         android:layout_height="50dp"
@@ -115,28 +109,14 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_place"
+            android:id="@+id/et_sellerplace"
             style="@style/textedit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/mainsignButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/LightBlue"
-        android:text="Sign Up"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.883" />
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_pass"
+        android:id="@+id/til_sellerpass"
         style="@style/textinputlayout"
         android:layout_width="340dp"
         android:layout_height="50dp"
@@ -149,14 +129,14 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_pass"
+            android:id="@+id/et_sellerpass"
             style="@style/textedit"
             android:layout_width="match_parent"
             android:layout_height="52dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_conpass"
+        android:id="@+id/til_sellerconpass"
         style="@style/textinputlayout"
         android:layout_width="340dp"
         android:layout_height="50dp"
@@ -171,89 +151,23 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_conpass"
+            android:id="@+id/et_sellerconpass"
             style="@style/textedit"
             android:layout_width="340dp"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Spinner
-        android:id="@+id/spinnerbar"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:background="@color/Gainsboro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.663" />
-
-    <TextView
-        android:id="@+id/til_spin"
-        style="@style/textinputlayout"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.671"
-        tools:ignore="MissingConstraints" />
-
-
-    <NumberPicker
-        android:id="@+id/numberPicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.811" />
-
-
-    <ImageView
-        android:layout_width="53dp"
-        android:layout_height="80dp"
-        android:src="@drawable/ageicon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.749" />
-
-    <TextView
-        android:id="@+id/agebar"
-        android:layout_width="270dp"
-        android:layout_height="50dp"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762" />
-
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signupSeller"
+        android:id="@+id/sellersignButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/LightBlue"
-        android:text="Sign Up as Seller"
+        android:text="Sign Up"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954" />
-
+        app:layout_constraintVertical_bias="0.883" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-

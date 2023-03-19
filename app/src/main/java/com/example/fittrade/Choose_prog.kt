@@ -38,14 +38,21 @@ class Choose_prog : AppCompatActivity() {
             navView.setNavigationItemSelectedListener {
                 when (it.itemId) {
                     R.id.firstItem -> {
+                        startActivity(Intent(this@Choose_prog, user_profile::class.java))
                         Toast.makeText(this@Choose_prog, "User Profile", Toast.LENGTH_SHORT).show()
 
                     }
                     R.id.secondid -> {
+
                         Toast.makeText(this@Choose_prog, "Analyzing", Toast.LENGTH_SHORT).show()
                     }
                     R.id.thirditem -> {
                         Toast.makeText(this@Choose_prog, "History", Toast.LENGTH_SHORT).show()
+                    }
+
+                    R.id.logoutnavi -> {
+                        startActivity(Intent(this@Choose_prog, MainActivity::class.java))
+
                     }
                 }
                 true

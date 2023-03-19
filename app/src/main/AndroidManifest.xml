@@ -12,6 +12,12 @@
         android:theme="@style/Theme.Fittrade"
         tools:targetApi="31">
         <activity
+            android:name=".sellersignup"
+            android:exported="false" />
+        <activity
+            android:name=".user_profile"
+            android:exported="false" />
+        <activity
             android:name=".exercise_provide"
             android:exported="false" />
         <activity
@@ -20,11 +26,9 @@
         <activity
             android:name=".Choose_prog"
             android:exported="false" />
-
         <activity
             android:name=".BMI_calculation"
             android:exported="false" />
-
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
