@@ -28,8 +28,6 @@ class RegisterActivity : AppCompatActivity() {
     private  lateinit var etPlace: EditText
     private  lateinit var etConpass: EditText
     private  lateinit var mainsignButton: Button
-    private lateinit var tvtextview : TextView
-    private lateinit var tvnumberpicker : NumberPicker
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -43,7 +41,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.spinnerbar.adapter = arrayAdapter
 
         binding.spinnerbar.onItemSelectedListener = object :
-        AdapterView.OnItemSelectedListener{
+        AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -58,15 +56,6 @@ class RegisterActivity : AppCompatActivity() {
             }
 
         }
-        tvtextview = findViewById(R.id.agebar)
-        tvnumberpicker = findViewById(R.id.numberPicker)
-        tvnumberpicker.minValue=0
-        tvnumberpicker.maxValue=100
-
-        tvtextview.text="Select yout age"
-
-        tvnumberpicker.setOnValueChangedListener { numberPicker, oldVal, newVal -> tvtextview.text="$newVal"}
-
 
         firebaseAuth = FirebaseAuth.getInstance()
 

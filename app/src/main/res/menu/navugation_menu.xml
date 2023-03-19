@@ -19,7 +19,7 @@
     <item
         android:id="@+id/cal"
         android:title="Calorie Calculation"
-        android:icon="@drawable/kcal"
+        android:icon="@drawable/kcalorie"
         />
     <item
         android:id="@+id/logoutnavi"
