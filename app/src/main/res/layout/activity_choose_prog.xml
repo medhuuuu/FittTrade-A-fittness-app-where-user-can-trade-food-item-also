@@ -12,45 +12,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="365dp"
-        android:layout_height="58dp"
-        android:id="@+id/exercise"
-        android:layout_marginBottom="544dp"
-        android:background="@color/LightSeaGreen"
+   <ImageButton
+       android:id="@+id/exercise"
+       android:layout_width="129dp"
+       android:layout_height="144dp"
+       android:src="@drawable/ageicon"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.21"
 
-        android:text="Choose Your exercise"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="365dp"
-        android:layout_height="58dp"
-        android:id="@+id/food"
-        android:layout_marginBottom="472dp"
-        android:background="@color/LightSeaGreen"
-
-        android:text="Choose Your food program"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.574"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="365dp"
-        android:layout_height="58dp"
-        android:id="@+id/doctor"
-        android:layout_marginBottom="388dp"
-        android:background="@color/LightSeaGreen"
-
-        android:text="consult expert"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.37" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
