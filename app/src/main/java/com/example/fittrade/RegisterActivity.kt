@@ -3,13 +3,8 @@ package com.example.fittrade
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
-import android.widget.NumberPicker
-import android.widget.TextView
 import android.widget.Toast
 import com.example.fittrade.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -21,12 +16,13 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private var db = Firebase.firestore
 
-    private  lateinit var etUser: EditText
-    private  lateinit var etEmail: EditText
-    private  lateinit var etPass: EditText
-    private  lateinit var etPhone: EditText
-    private  lateinit var etPlace: EditText
-    private  lateinit var etConpass: EditText
+    private lateinit var etUser: EditText
+    private lateinit var etEmail: EditText
+    private lateinit var etPass: EditText
+    private lateinit var etPhone: EditText
+    private lateinit var etPlace: EditText
+    private lateinit var etConpass: EditText
+    private lateinit var etAge: EditText
     private  lateinit var mainsignButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,26 +32,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.signupSeller.setOnClickListener {
             startActivity(Intent(this,sellersignup::class.java))
         }
-        val personnames= arrayOf("Male","Female", "Others")
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, personnames)
-        binding.spinnerbar.adapter = arrayAdapter
 
-        binding.spinnerbar.onItemSelectedListener = object :
-        AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                /*binding.tilSpin.text= personnames[position]*/
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                /*binding.tilSpin.text = "Select Item Please"*/
-            }
-
-        }
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -65,17 +42,20 @@ class RegisterActivity : AppCompatActivity() {
         etPhone = findViewById(R.id.et_phone)
         etPlace = findViewById(R.id.et_place)
         etConpass = findViewById(R.id.et_conpass)
+        etAge = findViewById(R.id.et_age)
         mainsignButton = findViewById(R.id.mainsignButton)
 
         mainsignButton.setOnClickListener {
+
             val userName = etUser.text.toString().trim()
             val email = etEmail.text.toString().trim()
             val pass = etPass.text.toString().trim()
             val conPass = etConpass.text.toString().trim()
             val phnNo = etPhone.text.toString().trim()
             val place = etPlace.text.toString().trim()
+            val age = etAge.text.toString().trim()
 
-            if(userName.isNotEmpty() && phnNo.isNotEmpty() && place.isNotEmpty() && email.isNotEmpty() && pass.isNotEmpty() && conPass.isNotEmpty()){
+            if(userName.isNotEmpty() && phnNo.isNotEmpty() && age.isNotEmpty() && place.isNotEmpty() && email.isNotEmpty() && pass.isNotEmpty() && conPass.isNotEmpty()){
                 if (pass == conPass){
                     firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener{
                         if (it.isSuccessful){
@@ -84,7 +64,8 @@ class RegisterActivity : AppCompatActivity() {
                                 "email" to email,
                                 "pass" to pass,
                                 "phn" to phnNo,
-                                "place" to place
+                                "place" to place,
+                                "age" to age
                             )
 
                             val userId = FirebaseAuth.getInstance().currentUser!!.uid
