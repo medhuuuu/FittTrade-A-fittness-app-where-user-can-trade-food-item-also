@@ -12,6 +12,24 @@
         android:theme="@style/Theme.Fittrade"
         tools:targetApi="31">
         <activity
+            android:name=".Trainer_bio"
+            android:exported="false" />
+        <activity
+            android:name=".doc_bio"
+            android:exported="false" />
+        <activity
+            android:name=".trainer_profile"
+            android:exported="false" />
+        <activity
+            android:name=".doc_profile"
+            android:exported="false" />
+        <activity
+            android:name=".select_user"
+            android:exported="false" />
+        <activity
+            android:name=".carousel"
+            android:exported="false" />
+        <activity
             android:name=".sellersignup"
             android:exported="false" />
         <activity

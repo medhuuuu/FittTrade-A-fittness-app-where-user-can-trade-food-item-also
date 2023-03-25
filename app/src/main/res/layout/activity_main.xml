@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/MediumTurquoise"
-    android:paddingRight="20dp"
+    android:background="@drawable/sexy3"
     android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     tools:context=".MainActivity">
 
 
@@ -39,27 +39,33 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signupbtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="301dp"
+        android:layout_height="46dp"
         android:layout_marginTop="60dp"
         android:background="@color/white"
         android:text="@string/btn_signup"
         android:textColor="@color/primary_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginbtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="301dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="15dp"
         android:background="@color/white"
         android:text="@string/btn_login"
         android:textColor="@color/primary_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupbtn"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="20dp" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

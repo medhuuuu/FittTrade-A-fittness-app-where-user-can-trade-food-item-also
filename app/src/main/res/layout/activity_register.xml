@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@color/gray_light"
+    android:background="@drawable/sexy"
 
     android:padding="20dp"
     tools:context="RegisterActivity">
@@ -17,9 +17,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="132dp"
         android:text="Create An Account"
+        android:textAlignment="center"
         android:textSize="35sp"
         android:textStyle="bold"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
@@ -50,6 +50,7 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_email"
         style="@style/textinputlayout"
@@ -59,10 +60,10 @@
         android:hint="Enter email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253"
+        app:layout_constraintVertical_bias="0.255"
         app:startIconDrawable="@drawable/mailaccount"
         tools:ignore="MissingConstraints">
 
@@ -72,9 +73,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_phone"
@@ -107,10 +105,10 @@
         android:hint="Enter your Region"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414"
+        app:layout_constraintVertical_bias="0.422"
         app:startIconDrawable="@drawable/pointobjects"
         tools:ignore="MissingConstraints">
 
@@ -123,17 +121,16 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/mainsignButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="317dp"
+        android:layout_height="48dp"
         android:background="@color/LightBlue"
         android:text="Sign Up"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.883" />
+        app:layout_constraintVertical_bias="0.879" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_pass"
@@ -141,6 +138,7 @@
         android:layout_width="340dp"
         android:layout_height="50dp"
         android:hint="Create Password"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -186,10 +184,10 @@
         android:hint="Confirm AGE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.751"
+        app:layout_constraintVertical_bias="0.677"
         app:startIconDrawable="@drawable/ageicon"
         tools:ignore="MissingConstraints">
 
@@ -200,20 +198,18 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signupSeller"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
         android:background="@color/LightBlue"
-        android:text="Sign Up as Seller"
-        android:textSize="20sp"
+        android:text="Sign Up as Service Provider"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954" />
+        app:layout_constraintTop_toBottomOf="@+id/mainsignButton"
+        app:layout_constraintVertical_bias="0.477" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

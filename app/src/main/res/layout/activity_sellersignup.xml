@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sellersignup"
-    android:padding="20dp">
+    android:background="@drawable/sexy5"
+    android:padding="20dp"
+    tools:context=".sellersignup">
 
 
     <TextView
@@ -14,9 +15,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="132dp"
         android:text="Create An Account"
+        android:textAlignment="center"
         android:textSize="35sp"
         android:textStyle="bold"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
@@ -24,6 +25,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.058"
         tools:ignore="MissingConstraints" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_selleruser"
@@ -33,10 +35,10 @@
         android:hint="@string/company_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171"
+        app:layout_constraintVertical_bias="0.18"
         app:startIconDrawable="@drawable/guestmale"
         tools:ignore="MissingConstraints">
 
@@ -53,13 +55,12 @@
         android:layout_width="340dp"
 
         android:layout_height="50dp"
+        android:layout_marginTop="13dp"
         android:hint="Enter email"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253"
+        app:layout_constraintTop_toBottomOf="@+id/til_selleruser"
         app:startIconDrawable="@drawable/mailaccount"
         tools:ignore="MissingConstraints">
 
@@ -76,13 +77,12 @@
         android:layout_width="340dp"
 
         android:layout_height="50dp"
+        android:layout_marginTop="13dp"
         android:hint="Enter Phone Number"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.334"
+        app:layout_constraintTop_toBottomOf="@+id/til_email"
         app:startIconDrawable="@drawable/iphonex"
         tools:ignore="MissingConstraints">
 
@@ -98,13 +98,12 @@
         style="@style/textinputlayout"
         android:layout_width="340dp"
         android:layout_height="50dp"
+        android:layout_marginTop="13dp"
         android:hint="Enter your Region"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414"
+        app:layout_constraintTop_toBottomOf="@+id/til_sellerphone"
         app:startIconDrawable="@drawable/pointobjects"
         tools:ignore="MissingConstraints">
 
@@ -120,11 +119,12 @@
         style="@style/textinputlayout"
         android:layout_width="340dp"
         android:layout_height="50dp"
+        android:layout_marginTop="13dp"
         android:hint="Create Password"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_sellerplace"
         app:startIconDrawable="@drawable/password1"
         tools:ignore="MissingConstraints">
 
@@ -140,13 +140,12 @@
         style="@style/textinputlayout"
         android:layout_width="340dp"
         android:layout_height="50dp"
+        android:layout_marginTop="13dp"
         android:hint="Confirm Password"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.586"
+        app:layout_constraintTop_toBottomOf="@+id/til_sellerpass"
         app:startIconDrawable="@drawable/password1"
         tools:ignore="MissingConstraints">
 
@@ -156,6 +155,48 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <Spinner
+        android:id="@+id/spinbar"
+        android:layout_width="340dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/Azure"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/sellersignButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_sellerconpass"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/spinshow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="58dp"
+        app:layout_constraintBottom_toTopOf="@+id/sellersignButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_dynamic"
+        tools:ignore="UnknownId" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/identity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_sellerconpass"
+        app:layout_constraintVertical_bias="0.08" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sellersignButton"
@@ -170,4 +211,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.883" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,7 +48,7 @@ class BMI_calculation : AppCompatActivity() {
         startActivity(intent)
 
         val bmiMap = hashMapOf(
-            "height" to height,
+            "height" to heightStr,
             "weight" to weight,
             "bmi" to bmivalue
         )

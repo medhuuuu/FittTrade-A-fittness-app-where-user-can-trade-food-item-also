@@ -15,6 +15,10 @@ class user_profile : AppCompatActivity() {
     private lateinit var tvEmail: TextView
     private lateinit var tvphone: TextView
     private lateinit var tvaddress: TextView
+    private lateinit var tvbmi : TextView
+    private lateinit var tvweight : TextView
+    private lateinit var tvheight: TextView
+    private lateinit var tvage: TextView
 
     private var db = Firebase.firestore
     @SuppressLint("MissingInflatedId")
@@ -26,18 +30,35 @@ class user_profile : AppCompatActivity() {
         tvEmail = findViewById(R.id.email)
         tvphone= findViewById(R.id.phoneno)
         tvaddress = findViewById(R.id.address)
+        tvbmi = findViewById(R.id.bmivalueshow)
+        tvweight = findViewById(R.id.weighteshow)
+        tvheight = findViewById(R.id.heighteshow)
+        tvage= findViewById(R.id.ageshow)
 
 
         val userid = FirebaseAuth.getInstance().currentUser!!.uid
         val ref = db.collection("user").document(userid)
+        val ref2 = db.collection("bmi").document(userid)
+        ref2.get().addOnSuccessListener {
+            if(it!=null){
+                val bmivalue =it.data?.get("bmi")?.toString()
+                val weight = it.data?.get("weight")?.toString()
+                val height = it.data?.get("height")?.toString()
+                tvweight.text = weight
+                tvheight.text = height
+                tvbmi.text = bmivalue
+            }
+        }
         ref.get().addOnSuccessListener {
             if(it!=null){
                 val name = it.data?.get("userName")?.toString()
                 val email = it.data?.get("email")?.toString()
                 val phone = it.data?.get("phn")?.toString()
                 val address = it.data?.get("place").toString()
+                val age=  it.data?.get("age").toString()
 
                 tvName.text = name
+                tvage.text = age
                 tvEmail.text = email
                 tvphone.text = phone
                 tvaddress.text = address

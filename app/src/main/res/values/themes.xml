@@ -35,10 +35,17 @@
     </style>
     <style name="textedit" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:background">@color/AliceBlue</item>
     </style>
     <style name="fontfamily">
-        <item name="fontFamily">sans-serif-black</item>
+        <item name="fontFamily">@font/oswaldexlight</item>
         <item name="android:textColor">@color/DarkTurquoise</item>
+    </style>
+    <style name="fontfamily2">
+        <item name="fontFamily">@font/dosisreg</item>
+    </style>
+    <style name="fontfamily3">
+        <item name="fontFamily">@font/promtlight</item>
     </style>
     <style name="icon">
         <item name="startIconTint">@color/DarkTurquoise</item>

@@ -39,7 +39,7 @@ class Choose_prog : AppCompatActivity() {
                 when (it.itemId) {
                     R.id.firstItem -> {
                         startActivity(Intent(this@Choose_prog, user_profile::class.java))
-                        Toast.makeText(this@Choose_prog, "User Profile", Toast.LENGTH_SHORT).show()
+                        /*Toast.makeText(this@Choose_prog, "User Profile", Toast.LENGTH_SHORT).show()*/
 
                     }
                     R.id.secondid -> {

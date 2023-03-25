@@ -6,24 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".Choose_prog"
    android:paddingRight="20dp"
-    android:id="@+id/drawyerLayout">
-
+    android:id="@+id/drawyerLayout"
+    android:background="@drawable/sexy7">
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent">
+
+      <ViewFlipper
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:layout_marginStart="18dp"
+          android:layout_marginTop="17dp"
+          android:layout_marginEnd="18dp"
+          android:layout_marginBottom="20dp"
+          android:autoStart="true"
+          android:flipInterval="2000"
+          android:inAnimation="@android:anim/slide_in_left"
+          android:outAnimation="@android:anim/slide_out_right"
+          app:layout_constraintBottom_toTopOf="@+id/exercise"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="0.266">
+
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:background="@drawable/ilish" />
+
+         <ImageView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@drawable/weightlift" />
+
+         <ImageView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@drawable/doctoraes" />
+
+
+      </ViewFlipper>
 
       <ImageButton
           android:id="@+id/exercise"
           android:layout_width="152dp"
           android:layout_height="141dp"
+          android:background="@drawable/gradient"
           android:src="@drawable/exerciseprog"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.178"
+          app:layout_constraintHorizontal_bias="0.2"
 
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintVertical_bias="0.345" />
+          app:layout_constraintVertical_bias="0.413" />
 
       <TextView
           android:layout_width="wrap_content"
@@ -32,23 +69,24 @@
           android:textSize="15sp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.225"
+          app:layout_constraintHorizontal_bias="0.245"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintVertical_bias="0.42" />
+          app:layout_constraintVertical_bias="0.474" />
 
       <ImageButton
           android:id="@+id/food"
           android:layout_width="152dp"
           android:layout_height="141dp"
+          android:background="@drawable/gradient"
           android:src="@drawable/foodprog"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.88"
+          app:layout_constraintHorizontal_bias="0.903"
 
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintVertical_bias="0.345" />
+          app:layout_constraintVertical_bias="0.413" />
 
       <TextView
           android:layout_width="wrap_content"
@@ -60,12 +98,13 @@
           app:layout_constraintHorizontal_bias="0.825"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintVertical_bias="0.42" />
+          app:layout_constraintVertical_bias="0.474" />
 
       <ImageButton
           android:id="@+id/doctor"
           android:layout_width="152dp"
           android:layout_height="141dp"
+          android:background="@drawable/gradient"
           android:src="@drawable/doctorprog"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +112,7 @@
 
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintVertical_bias="0.62" />
+          app:layout_constraintVertical_bias="0.668" />
 
       <TextView
           android:layout_width="wrap_content"
@@ -82,10 +121,10 @@
           android:textSize="15sp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.498"
+          app:layout_constraintHorizontal_bias="0.517"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintVertical_bias="0.657" />
+          app:layout_constraintVertical_bias="0.7" />
 
    </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".BMI_display"
     android:paddingLeft="20dp"
-    android:paddingRight="20dp">
+    android:paddingRight="20dp"
+    android:background="@drawable/sexy9">
 
 
     <TextView
@@ -50,7 +51,7 @@
         android:textSize="20sp"
         android:textAlignment="center"
         android:textStyle="normal"
-        android:textColor="@color/DarkTurquoise"
+        android:textColor="@color/Black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
@@ -65,7 +66,7 @@
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="28dp"
         android:text="NEXT"
-        android:textColor="@color/NavajoWhite"
+        android:textColor="@color/White"
         android:background="@color/DarkTurquoise"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

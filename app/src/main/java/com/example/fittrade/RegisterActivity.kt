@@ -30,7 +30,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.signupSeller.setOnClickListener {
-            startActivity(Intent(this,sellersignup::class.java))
+            startActivity(Intent(this,select_user::class.java))
         }
 
 

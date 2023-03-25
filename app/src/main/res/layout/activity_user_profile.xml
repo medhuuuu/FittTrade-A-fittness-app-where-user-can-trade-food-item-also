@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainback"
+    android:background="@drawable/sexy8"
     tools:context=".user_profile">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -25,7 +25,7 @@
         android:layout_height="63dp"
 
         android:layout_marginBottom="508dp"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textAlignment="center"
         android:textColor="@color/Black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,16 +37,6 @@
         tools:ignore="MissingConstraints" />
 
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/shapeableImageView"
-        android:layout_width="377dp"
-        android:layout_height="275dp"
-        android:src="@drawable/basic6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/circular" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="172dp"
@@ -59,6 +49,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.782" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BMI"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.679" />
+
+    <TextView
+        android:id="@+id/bmivalueshow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.737" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="172dp"
@@ -72,17 +87,68 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.782" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.679" />
+
+    <TextView
+        android:id="@+id/weighteshow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.759"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.736" />
+
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="172dp"
         android:layout_height="174dp"
         android:src="@drawable/basic5"
-        app:shapeAppearanceOverlay="@style/circular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945" />
+        app:layout_constraintVertical_bias="0.945"
+        app:shapeAppearanceOverlay="@style/circular" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Height"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.818" />
+
+
+    <TextView
+        android:id="@+id/heighteshow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.243"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="172dp"
@@ -97,12 +163,38 @@
         app:layout_constraintVertical_bias="0.945" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.818" />
+
+    <TextView
+        android:id="@+id/ageshow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.742"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87" />
+
+    <TextView
         android:id="@+id/email"
         android:layout_width="281dp"
         android:layout_height="50dp"
 
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textColor="@color/Black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.746"
@@ -118,6 +210,7 @@
 
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textColor="@color/Black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.723"
@@ -133,6 +226,7 @@
 
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textColor="@color/Black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.746"

@@ -2,14 +2,22 @@ package com.example.fittrade
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
+import com.example.fittrade.databinding.ActivitySellersignupBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.Objects
 
 class sellersignup : AppCompatActivity() {
+    private lateinit var binding: ActivitySellersignupBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private var db = Firebase.firestore
 
@@ -21,9 +29,35 @@ class sellersignup : AppCompatActivity() {
     private lateinit var etConpass : EditText
     private lateinit var button: Button
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sellersignup)
+        binding = ActivitySellersignupBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val profession_names = arrayOf("Doctor","Seller","Gym-trainer")
+        val arrayadapter= ArrayAdapter(this,android.R.layout.simple_spinner_item,profession_names)
+        binding.spinbar.adapter = arrayadapter
+
+        binding.spinbar.onItemSelectedListener = object :
+
+        AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                binding.spinshow.text= profession_names[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
+
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -34,6 +68,7 @@ class sellersignup : AppCompatActivity() {
         etPass = findViewById(R.id.et_sellerpass)
         etConpass = findViewById(R.id.et_sellerconpass)
         button = findViewById(R.id.sellersignButton)
+
 
         button.setOnClickListener {
             val companyName = etCname.text.toString().trim()
