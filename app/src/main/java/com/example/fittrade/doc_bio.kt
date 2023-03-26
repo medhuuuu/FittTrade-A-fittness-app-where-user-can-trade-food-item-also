@@ -1,5 +1,6 @@
 package com.example.fittrade
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -29,25 +30,29 @@ class doc_bio : AppCompatActivity() {
 
         setData()
 
+        val docUid = FirebaseAuth.getInstance().currentUser!!.uid
+
+        val ref = db.collection("doctor").document(docUid)
+
+        ref.get().addOnSuccessListener {
+            if (it != null) {
+                val job = it.data?.get("job")?.toString()
+                tvJobName.text = job
+            }
+        }
+
+        db.collection("gym-trainer").document(docUid).get().addOnSuccessListener {
+            if (it != null) {
+                val job = it.data?.get("job")?.toString()
+                tvJobName.text = job
+            }
+        }
+
+
+
         button.setOnClickListener {
             val bioText = etBio.text.toString().trim()
-            val docUid = FirebaseAuth.getInstance().currentUser!!.uid
 
-            val ref = db.collection("doctor").document(docUid)
-
-            ref.get().addOnSuccessListener {
-                if (it != null) {
-                    val job = it.data?.get("job")?.toString()
-                    tvJobName.text = job
-                }
-            }
-
-            db.collection("gym-trainer").document(docUid).get().addOnSuccessListener {
-                if (it != null) {
-                    val job = it.data?.get("job")?.toString()
-                    tvJobName.text = job
-                }
-            }
 
             val updateMap = mapOf("bio" to bioText)
 
@@ -56,6 +61,8 @@ class doc_bio : AppCompatActivity() {
             }.addOnFailureListener {
                 Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
             }
+
+            startActivity(Intent(this, doc_profile::class.java))
 
 
         }
