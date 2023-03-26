@@ -24,18 +24,18 @@
         app:layout_constraintVertical_bias="0.069" />
 
     <TextView
+        android:id="@+id/tvjobName"
         style="@style/fontfamily"
         android:layout_width="181dp"
         android:layout_height="76dp"
-        android:text="DOCTOR!"
 
         android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.696"
+        app:layout_constraintHorizontal_bias="0.739"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.132" />
+        app:layout_constraintVertical_bias="0.189" />
 
     <TextView
         android:id="@+id/textView6"
@@ -73,6 +73,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/saveButton"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:text="SAVE"
