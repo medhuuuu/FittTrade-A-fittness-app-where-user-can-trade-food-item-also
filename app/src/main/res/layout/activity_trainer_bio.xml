@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".doc_bio">
+    tools:context=".Trainer_Bio">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView7"
         style="@style/fontfamily"
         android:layout_width="295dp"
         android:layout_height="76dp"
@@ -23,12 +23,12 @@
         app:layout_constraintVertical_bias="0.078" />
 
     <TextView
-        android:id="@+id/tvjobName"
+        android:id="@+id/tvjobName2"
         style="@style/fontfamily"
         android:layout_width="222dp"
         android:layout_height="76dp"
 
-        android:text="Doctor"
+        android:text="Trainer"
         android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
@@ -65,7 +65,7 @@
         app:layout_constraintVertical_bias="0.398">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
+            android:id="@+id/trainerbio"
             style="@style/fontfamily2"
             android:layout_width="353dp"
             android:layout_height="135dp"
@@ -73,7 +73,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/saveButton2"
         style="@style/fontfamily2"
         android:layout_width="100dp"
         android:layout_height="40dp"

@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign In"
-        android:textSize="45sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,16 +28,14 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_email"
         style="@style/textinputlayout"
-        android:layout_width="340dp"
+        android:layout_width="310dp"
 
         android:layout_height="50dp"
+        android:layout_marginTop="80dp"
         android:hint="Enter email"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.334"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -50,17 +48,13 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_pass"
         style="@style/textinputlayout"
-        android:layout_width="340dp"
+        android:layout_width="310dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="412dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="13dp"
         android:hint="Enter Password"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_email"
-        app:layout_constraintVertical_bias="0.271"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -72,16 +66,28 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginbtn"
-        android:layout_width="306dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="228dp"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
         android:background="@color/primary_color"
         android:text="Sign In"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_pass" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginbtn2"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:background="@color/primary_color"
+        android:text="Sign In As Service Provider"
+        android:textSize="13sp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginbtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

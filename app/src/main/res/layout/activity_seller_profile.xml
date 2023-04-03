@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".doc_profile">
+    tools:context=".seller_profile">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,23 +20,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:src="@drawable/fitness" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:src="@drawable/fitness" />
 
 
-         <TextView
-             android:id="@+id/tvName"
-             android:layout_width="match_parent"
-             android:layout_height="60dp"
-             android:textAlignment="center"
-             android:textSize="30sp"
-             android:layout_marginTop="10dp"
-             android:layout_marginRight="20dp"
-             android:layout_marginLeft="30dp"
+            <TextView
+                android:id="@+id/tvName2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="30dp"
 
-             />
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -48,10 +48,11 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/tvJob"
+                android:id="@+id/tvJob2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:textSize="20sp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginRight="20dp"
@@ -65,10 +66,11 @@
                 android:text="Email  :"
                 android:textSize="20dp" />
             <TextView
-                android:id="@+id/tvEmail"
+                android:id="@+id/tvEmail2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:textSize="20sp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginRight="20dp"
@@ -82,10 +84,11 @@
                 android:text="About  :"
                 android:textSize="20dp" />
             <TextView
-                android:id="@+id/tvAbout"
+                android:id="@+id/tvAbout2"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:textSize="20sp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginRight="20dp"
@@ -100,7 +103,7 @@
                 android:text="Phone No  :"
                 android:textSize="20dp" />
             <TextView
-                android:id="@+id/tvPhone"
+                android:id="@+id/tvPhone2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:textSize="20sp"
@@ -113,6 +116,5 @@
 
 
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

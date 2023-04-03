@@ -28,43 +28,42 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="327dp"
-        android:layout_height="389dp"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="28dp"
+        android:layout_marginRight="20dp"
         android:contentDescription="TODO"
         android:src="@drawable/main_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quote"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="20dp" />
+        tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signupbtn"
-        android:layout_width="301dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
         android:background="@color/white"
         android:text="@string/btn_signup"
         android:textColor="@color/primary_color"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginbtn"
-        android:layout_width="301dp"
-        android:layout_height="46dp"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
         android:text="@string/btn_login"
         android:textColor="@color/primary_color"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupbtn"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
 

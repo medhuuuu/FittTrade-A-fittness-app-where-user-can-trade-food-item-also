@@ -7,7 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class doc_profile : AppCompatActivity() {
+class trainer_profile : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private var db = Firebase.firestore
 
@@ -16,23 +16,22 @@ class doc_profile : AppCompatActivity() {
     private lateinit var tvEmail : TextView
     private lateinit var tvAbout : TextView
     private lateinit var tvPhone : TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_doc_profile)
-
+        setContentView(R.layout.activity_trainer_profile)
         firebaseAuth = FirebaseAuth.getInstance()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        tvName = findViewById(R.id.tvName)
-        tvJob = findViewById(R.id.tvJob)
-        tvEmail = findViewById(R.id.tvEmail)
-        tvAbout = findViewById(R.id.tvAbout)
-        tvPhone = findViewById(R.id.tvPhone)
+
+        tvName = findViewById(R.id.tvName2)
+        tvJob = findViewById(R.id.tvJob2)
+        tvEmail = findViewById(R.id.tvEmail2)
+        tvAbout = findViewById(R.id.tvAbout2)
+        tvPhone = findViewById(R.id.tvPhone2)
 
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
 
-        db.collection("doctor").document(uid).get().addOnSuccessListener {
+        db.collection("gym-trainer").document(uid).get().addOnSuccessListener {
             if (it != null){
                 val name = it.data?.get("companyName")?.toString()
                 val email = it.data?.get("email")?.toString()
@@ -47,7 +46,5 @@ class doc_profile : AppCompatActivity() {
                 tvJob.text = job
             }
         }
-
-
     }
 }

@@ -20,33 +20,32 @@
         android:textAlignment="center"
         android:textSize="35sp"
         android:textStyle="bold"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_user"
         style="@style/textinputlayout"
-        android:layout_width="340dp"
+        android:layout_width="310dp"
         android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/your_user_name"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         app:startIconDrawable="@drawable/guestmale"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_user"
             style="@style/textedit"
-            android:layout_width="340dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,16 +53,14 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_email"
         style="@style/textinputlayout"
-        android:layout_width="340dp"
+        android:layout_width="310dp"
 
         android:layout_height="50dp"
+        android:layout_marginTop="13dp"
         android:hint="Enter email"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.255"
+        app:layout_constraintTop_toBottomOf="@+id/til_user"
         app:startIconDrawable="@drawable/mailaccount"
         tools:ignore="MissingConstraints">
 
@@ -77,16 +74,15 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_phone"
         style="@style/textinputlayout"
-        android:layout_width="340dp"
+        android:layout_width="310dp"
 
         android:layout_height="50dp"
+        android:layout_marginTop="13dp"
         android:hint="Enter Phone Number"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.334"
+        app:layout_constraintTop_toBottomOf="@+id/til_email"
         app:startIconDrawable="@drawable/iphonex"
         tools:ignore="MissingConstraints">
 
@@ -100,15 +96,13 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_place"
         style="@style/textinputlayout"
-        android:layout_width="340dp"
+        android:layout_width="310dp"
         android:layout_height="50dp"
+        android:layout_marginTop="13dp"
         android:hint="Enter your Region"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.422"
+        app:layout_constraintTop_toBottomOf="@+id/til_phone"
         app:startIconDrawable="@drawable/pointobjects"
         tools:ignore="MissingConstraints">
 
@@ -121,28 +115,28 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/mainsignButton"
-        android:layout_width="317dp"
-        android:layout_height="48dp"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:background="@color/LightBlue"
         android:text="Sign Up"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.879" />
+        app:layout_constraintTop_toBottomOf="@+id/til_age" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_pass"
         style="@style/textinputlayout"
-        android:layout_width="340dp"
+        android:layout_width="310dp"
         android:layout_height="50dp"
-        android:hint="Create Password"
+        android:layout_marginTop="13dp"
 
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="Create Password"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_place"
         app:startIconDrawable="@drawable/password1"
         tools:ignore="MissingConstraints">
 
@@ -150,28 +144,26 @@
             android:id="@+id/et_pass"
             style="@style/textedit"
             android:layout_width="match_parent"
-            android:layout_height="52dp" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_conpass"
         style="@style/textinputlayout"
-        android:layout_width="340dp"
+        android:layout_width="310dp"
         android:layout_height="50dp"
+        android:layout_marginTop="13dp"
         android:hint="Confirm Password"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.586"
+        app:layout_constraintTop_toBottomOf="@+id/til_pass"
         app:startIconDrawable="@drawable/password1"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_conpass"
             style="@style/textedit"
-            android:layout_width="340dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -179,15 +171,13 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_age"
         style="@style/textinputlayout"
-        android:layout_width="340dp"
+        android:layout_width="310dp"
         android:layout_height="50dp"
+        android:layout_marginTop="13dp"
         android:hint="Confirm AGE"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.677"
+        app:layout_constraintTop_toBottomOf="@+id/til_conpass"
         app:startIconDrawable="@drawable/ageicon"
         tools:ignore="MissingConstraints">
 
@@ -200,16 +190,16 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signupSeller"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
         android:background="@color/LightBlue"
         android:text="Sign Up as Service Provider"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainsignButton"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintTop_toBottomOf="@+id/mainsignButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

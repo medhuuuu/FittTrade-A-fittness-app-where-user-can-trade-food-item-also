@@ -11,48 +11,37 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class doc_bio : AppCompatActivity() {
+class Trainer_Bio : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private var db = Firebase.firestore
 
-    private lateinit var tvJobName : TextView
-    private lateinit var etBio : EditText
-    private lateinit var button: Button
-
+    private lateinit var tvJobName2 : TextView
+    private lateinit var etBio2 : EditText
+    private lateinit var button2: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_doc_bio)
-
+        setContentView(R.layout.activity_trainer_bio)
         firebaseAuth = FirebaseAuth.getInstance()
 
-        tvJobName = findViewById(R.id.tvjobName)
-        etBio = findViewById(R.id.textInputEditText)
-        button = findViewById(R.id.saveButton)
-
-
+        etBio2 = findViewById(R.id.trainerbio)
+        button2 = findViewById(R.id.saveButton2)
         val docUid = FirebaseAuth.getInstance().currentUser!!.uid
-        val ref1 = db.collection("doctor").document(docUid)
+        val ref2 = db.collection("gym-trainer").document(docUid)
 
-        button.setOnClickListener {
-            val bioText = etBio.text.toString().trim()
+        button2.setOnClickListener {
+            val bioText = etBio2.text.toString().trim()
 
 
             val updateMap = mapOf("bio" to bioText)
-
-            ref1.update(updateMap).addOnSuccessListener {
+            ref2.update(updateMap).addOnSuccessListener {
                 /*Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show()*/
             }.addOnFailureListener {
                 Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
             }
 
-            startActivity(Intent(this, doctor_show::class.java))
+            startActivity(Intent(this, trainer_show::class.java))
 
 
         }
-
-
     }
-
-
-
 }

@@ -23,22 +23,22 @@
 
             <ImageButton
                 android:id="@+id/sellerimg"
-                android:layout_width="350dp"
-                android:layout_height="match_parent"
+                android:layout_width="300dp"
+                android:layout_height="350dp"
                 android:layout_marginRight="22dp"
                 android:src="@drawable/fotdelivery" />
 
             <ImageButton
                 android:id="@+id/docimg"
-                android:layout_width="350dp"
-                android:layout_height="match_parent"
+                android:layout_width="300dp"
+                android:layout_height="350dp"
                 android:layout_marginRight="22dp"
                 android:src="@drawable/futdoctor"
                 />
             <ImageButton
                 android:id="@+id/fitimg"
-                android:layout_width="350dp"
-                android:layout_height="match_parent"
+                android:layout_width="300dp"
+                android:layout_height="350dp"
                 android:layout_marginRight="22dp"
                 android:src="@drawable/futfitness"
                 />

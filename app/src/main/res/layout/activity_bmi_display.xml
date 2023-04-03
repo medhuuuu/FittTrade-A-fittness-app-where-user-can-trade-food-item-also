@@ -4,74 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BMI_display"
+    android:background="@drawable/sexy9"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:background="@drawable/sexy9">
+    tools:context=".BMI_display">
 
 
     <TextView
         android:id="@+id/textView3"
+        style="@style/fontfamily2"
         android:layout_width="338dp"
         android:layout_height="78dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="65dp"
         android:text="Your Bmi Value"
         android:textAlignment="center"
-        android:textSize="45sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textresult2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textresult2"
         android:layout_width="348dp"
-        android:layout_height="88dp"
-        android:layout_marginBottom="520dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
         android:textAlignment="center"
         android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.349"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/txtmessage"
-        android:layout_width="370dp"
-        android:layout_height="160dp"
+        style="@style/fontfamily2"
+        android:layout_width="340dp"
 
-        android:layout_marginBottom="332dp"
-
-        android:textSize="20sp"
+        android:layout_height="111dp"
+        android:layout_marginTop="40dp"
         android:textAlignment="center"
-        android:textStyle="normal"
         android:textColor="@color/Black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="27sp"
+
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textresult2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textresult2" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/nxtbtn"
         android:layout_width="160dp"
         android:layout_height="56dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="28dp"
+        android:background="@color/DarkTurquoise"
         android:text="NEXT"
         android:textColor="@color/White"
-        android:background="@color/DarkTurquoise"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtmessage"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.669" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

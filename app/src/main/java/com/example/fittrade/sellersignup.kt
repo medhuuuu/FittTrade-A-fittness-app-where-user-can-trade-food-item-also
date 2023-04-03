@@ -103,7 +103,7 @@ class sellersignup : AppCompatActivity() {
 
                             if (jobText == "Doctor"){
                                 db.collection("doctor").document(sellerId).set(sellerMap).addOnSuccessListener {
-                                    Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()
+                                    /*Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()*/
                                     startActivity(Intent(this, doc_bio::class.java))
                                 }.addOnFailureListener {
                                     Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
@@ -118,8 +118,8 @@ class sellersignup : AppCompatActivity() {
                             }
                             else if (jobText == "Gym-trainer"){
                                 db.collection("gym-trainer").document(sellerId).set(sellerMap).addOnSuccessListener {
-                                    Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()
-                                    startActivity(Intent(this, doc_bio::class.java))
+                                    /*Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()*/
+                                    startActivity(Intent(this, Trainer_Bio::class.java))
                                 }.addOnFailureListener {
                                     Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                                 }
