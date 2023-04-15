@@ -79,7 +79,9 @@ class LoginActivity : AppCompatActivity() {
                 val job = it.data?.get("job")?.toString()
 
                 if (job == "Doctor"){
-                    startActivity(Intent(this, doctor_show::class.java))
+                    val intent= Intent(this, doctor_show::class.java)
+                    intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
                 }
 
             }
@@ -90,7 +92,9 @@ class LoginActivity : AppCompatActivity() {
                 val job = it.data?.get("job")?.toString()
 
                 if (job == "Seller"){
-                    startActivity(Intent(this, seller_show::class.java))
+                    val intent= Intent(this, seller_show::class.java)
+                    intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
                 }
 
             }
@@ -101,7 +105,9 @@ class LoginActivity : AppCompatActivity() {
                 val job = it.data?.get("job")?.toString()
 
                 if (job == "Gym-trainer"){
-                    startActivity(Intent(this, trainer_show::class.java))
+                    val intent= Intent(this, trainer_show::class.java)
+                    intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
                 }
 
             }

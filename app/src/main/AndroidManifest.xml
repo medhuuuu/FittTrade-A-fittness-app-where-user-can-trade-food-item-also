@@ -11,15 +11,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fittrade"
         tools:targetApi="31">
+        <activity android:name=".New_message">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".doctor_show"/>
+        </activity>
         <activity
             android:name=".trainer_show"
-            android:exported="false" />
+            android:exported="true">
+        </activity>
         <activity
             android:name=".doctor_show"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            />
+        </activity>
         <activity
             android:name=".seller_show"
-            android:exported="false" />
+            android:exported="true">
+        </activity>
         <activity
             android:name=".seller_profile"
             android:exported="false" />
@@ -29,7 +42,7 @@
         <activity
             android:name=".trainer_profile"
             android:exported="false"
-            android:parentActivityName=".trainer_show"/>
+            android:parentActivityName=".trainer_show" />
         <activity
             android:name=".Trainer_Bio"
             android:exported="false" />
@@ -42,7 +55,7 @@
         <activity
             android:name=".doc_profile"
             android:exported="false"
-            android:parentActivityName=".doctor_show"/>
+            android:parentActivityName=".doctor_show" />
         <activity
             android:name=".select_user"
             android:exported="false" />
@@ -55,7 +68,7 @@
         <activity
             android:name=".user_profile"
             android:exported="false"
-            android:parentActivityName=".Choose_prog"/>
+            android:parentActivityName=".Choose_prog" />
         <activity
             android:name=".exercise_provide"
             android:exported="false" />
