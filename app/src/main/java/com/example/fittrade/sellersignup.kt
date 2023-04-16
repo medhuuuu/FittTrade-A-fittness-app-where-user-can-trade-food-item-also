@@ -85,6 +85,7 @@ class sellersignup : AppCompatActivity() {
             val conPass = etConpass.text.toString().trim()
             val jobText = etJob.text.toString().trim()
             val bio = " "
+            val img = " "
 
             if(companyName.isNotEmpty() && phone.isNotEmpty() && place.isNotEmpty() && email.isNotEmpty() && pass.isNotEmpty() && conPass.isNotEmpty()){
                 if (pass == conPass) {
@@ -96,7 +97,8 @@ class sellersignup : AppCompatActivity() {
                                 "phone" to phone,
                                 "pass" to pass,
                                 "job" to jobText,
-                                "bio" to bio
+                                "bio" to bio,
+                                "img" to img
                             )
 
                             val sellerId = FirebaseAuth.getInstance().currentUser!!.uid

@@ -39,6 +39,12 @@
 
                 />
 
+            <Button
+                android:id="@+id/upImg"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="E"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"

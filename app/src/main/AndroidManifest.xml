@@ -11,15 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fittrade"
         tools:targetApi="31">
-
-        <activity android:name=".New_message">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".doctor_show" />
-        </activity>
         <activity
-            android:name=".trainer_show"
-            android:exported="true"></activity>
+            android:name=".Img_Upload"
+            android:exported="false" />
         <activity
             android:name=".doctor_show"
             android:exported="true">
@@ -28,11 +22,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            />
+        </activity>
+        <activity android:name=".New_message">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".doctor_show" />
         </activity>
         <activity
+            android:name=".trainer_show"
+            android:exported="true" />
+        <activity
             android:name=".seller_show"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".seller_profile"
             android:exported="false" />
@@ -59,7 +60,9 @@
         <activity
             android:name=".select_user"
             android:exported="false" />
-
+        <activity
+            android:name=".carousel"
+            android:exported="false" />
         <activity
             android:name=".sellersignup"
             android:exported="false" />
