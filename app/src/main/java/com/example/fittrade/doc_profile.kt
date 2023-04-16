@@ -1,7 +1,9 @@
 package com.example.fittrade
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -16,6 +18,7 @@ class doc_profile : AppCompatActivity() {
     private lateinit var tvEmail : TextView
     private lateinit var tvAbout : TextView
     private lateinit var tvPhone : TextView
+    private lateinit var editBtn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,7 @@ class doc_profile : AppCompatActivity() {
         tvPhone = findViewById(R.id.tvPhone)
 
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
+
 
         db.collection("doctor").document(uid).get().addOnSuccessListener {
             if (it != null){
@@ -49,5 +53,7 @@ class doc_profile : AppCompatActivity() {
         }
 
 
+
     }
 }
+
