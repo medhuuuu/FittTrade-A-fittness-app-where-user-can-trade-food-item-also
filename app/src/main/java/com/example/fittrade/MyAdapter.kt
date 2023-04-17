@@ -4,14 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.squareup.picasso.Picasso
+import de.hdodenhof.circleimageview.CircleImageView
 
-class MyAdapter(private val userlist : ArrayList<doc_user>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(private val userlist: ArrayList<doc_user>, private val context: Context) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -20,10 +18,12 @@ class MyAdapter(private val userlist : ArrayList<doc_user>) : RecyclerView.Adapt
         return MyViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: MyAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         holder.companyName.text= userlist[position].companyName
         holder.phone.text = userlist[position].phone
+
+        Glide.with(context).load(userlist[position].img).into(holder.image)
 
 
 
@@ -35,8 +35,9 @@ class MyAdapter(private val userlist : ArrayList<doc_user>) : RecyclerView.Adapt
     }
 
      class MyViewHolder(ItemView : View): RecyclerView.ViewHolder(ItemView){
-        val companyName : TextView =ItemView.findViewById(R.id.tvrecycle_username)
-        val phone : TextView = ItemView.findViewById(R.id.tvrecycle_phone)
+         val image : CircleImageView = ItemView.findViewById(R.id.tvrecycle_img)
+         val companyName : TextView =ItemView.findViewById(R.id.tvrecycle_username)
+         val phone : TextView = ItemView.findViewById(R.id.tvrecycle_phone)
 
 
      }

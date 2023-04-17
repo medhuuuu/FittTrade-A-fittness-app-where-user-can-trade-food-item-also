@@ -48,9 +48,6 @@
             android:name=".Trainer_Bio"
             android:exported="false" />
         <activity
-            android:name=".Trainer_bio"
-            android:exported="false" />
-        <activity
             android:name=".doc_bio"
             android:exported="false" />
         <activity
@@ -59,9 +56,6 @@
             android:parentActivityName=".doctor_show" />
         <activity
             android:name=".select_user"
-            android:exported="false" />
-        <activity
-            android:name=".carousel"
             android:exported="false" />
         <activity
             android:name=".sellersignup"
