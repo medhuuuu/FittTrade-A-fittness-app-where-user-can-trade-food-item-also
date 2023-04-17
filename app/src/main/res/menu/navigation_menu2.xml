@@ -9,8 +9,18 @@
         />
 
     <item
-        android:title="NEW Message"
+        android:title="Doc_LOG"
         android:id="@+id/new_msg"
+        android:icon="@drawable/round_man_24"
+        />
+    <item
+        android:title="Trainer_LOG"
+        android:id="@+id/trainer_msg"
+        android:icon="@drawable/round_man_24"
+        />
+    <item
+        android:title="Seller_LOG"
+        android:id="@+id/seller_msg"
         android:icon="@drawable/round_man_24"
         />
 

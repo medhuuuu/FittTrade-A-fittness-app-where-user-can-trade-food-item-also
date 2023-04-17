@@ -52,6 +52,12 @@ class doctor_show : AppCompatActivity() {
                     R.id.new_msg -> {
                         startActivity(Intent(this@doctor_show, New_message::class.java))
                     }
+                    R.id.trainer_msg ->{
+                        startActivity(Intent(this@doctor_show, Trainer_log::class.java))
+                    }
+                    R.id.seller_msg ->{
+                        startActivity(Intent(this@doctor_show, Seller_log::class.java))
+                    }
                 }
                 true
 

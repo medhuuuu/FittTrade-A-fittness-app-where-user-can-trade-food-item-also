@@ -34,13 +34,12 @@ class MyAdapter(private val userlist: ArrayList<doc_user>, private val context: 
         return userlist.size
     }
 
-     class MyViewHolder(ItemView : View): RecyclerView.ViewHolder(ItemView){
-         val image : CircleImageView = ItemView.findViewById(R.id.tvrecycle_img)
-         val companyName : TextView =ItemView.findViewById(R.id.tvrecycle_username)
-         val phone : TextView = ItemView.findViewById(R.id.tvrecycle_phone)
+    class MyViewHolder(ItemView : View): RecyclerView.ViewHolder(ItemView){
+        val image : CircleImageView = ItemView.findViewById(R.id.tvrecycle_img)
+        val companyName : TextView =ItemView.findViewById(R.id.tvrecycle_username)
+        val phone : TextView = ItemView.findViewById(R.id.tvrecycle_phone)
 
 
-     }
+    }
 }
-
 
