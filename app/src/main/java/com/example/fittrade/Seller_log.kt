@@ -15,10 +15,12 @@ class Seller_log : AppCompatActivity() {
     private lateinit var myAdapter: MyAdapter
 
     private var db = Firebase.firestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_message)
-        recyclerView= findViewById(R.id.recycle_newmsg)
+        setContentView(R.layout.activity_seller_log)
+
+        recyclerView= findViewById(R.id.recycle_sellermsg)
         recyclerView.layoutManager = LinearLayoutManager(this)
         /*recyclerView.setHasFixedSize(true)*/
         userArrayList = arrayListOf()
@@ -36,6 +38,7 @@ class Seller_log : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
             }
+
 
     }
 }

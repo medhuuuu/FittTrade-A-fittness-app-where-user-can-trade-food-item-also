@@ -41,8 +41,5 @@ class New_message : AppCompatActivity() {
 
 
 
-
-
-
     }
 }
