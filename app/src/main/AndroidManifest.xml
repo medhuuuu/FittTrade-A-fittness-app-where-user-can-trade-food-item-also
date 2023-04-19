@@ -12,13 +12,14 @@
         android:theme="@style/Theme.Fittrade"
         tools:targetApi="31">
         <activity
-            android:name=".Seller_log"
+            android:name=".chatlog_Activity"
             android:exported="false" />
-        <activity android:name=".Trainer_log">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".trainer_show" />
-        </activity>
+        <activity
+            android:name=".Seller_log"
+            android:exported="false"></activity>
+        <activity
+            android:name=".Trainer_log"
+            android:exported="false"></activity>
         <activity
             android:name=".Img_Upload"
             android:exported="false" />
@@ -31,11 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".New_message">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".doctor_show" />
-        </activity>
+        <activity
+            android:name=".New_message"
+            android:exported="false"></activity>
         <activity
             android:name=".trainer_show"
             android:exported="true">

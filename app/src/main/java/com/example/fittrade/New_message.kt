@@ -1,5 +1,6 @@
 package com.example.fittrade
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -31,13 +32,23 @@ class New_message : AppCompatActivity() {
                 for (data in it.documents){
                     val user : doc_user? = data.toObject<doc_user>(doc_user::class.java)
                     userArrayList.add(user!!)
+
                 }
+
                 recyclerView.adapter = MyAdapter(userArrayList, this)
+
+
+
             }
+
         }
+
+
             .addOnFailureListener {
                 Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
             }
+
+
 
 
 
