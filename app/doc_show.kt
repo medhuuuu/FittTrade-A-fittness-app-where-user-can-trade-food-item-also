@@ -1,2 +1,0 @@
-class doc_show {
-}
