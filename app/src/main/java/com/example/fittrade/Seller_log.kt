@@ -5,6 +5,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -13,6 +19,7 @@ class Seller_log : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var userArrayList: ArrayList<doc_user>
     private lateinit var myAdapter: MyAdapter
+    private lateinit var dbref : DatabaseReference
 
     private var db = Firebase.firestore
 
@@ -25,20 +32,26 @@ class Seller_log : AppCompatActivity() {
         /*recyclerView.setHasFixedSize(true)*/
         userArrayList = arrayListOf()
         db= FirebaseFirestore.getInstance()
+        dbref = FirebaseDatabase.getInstance().getReference("seller")
 
-        db.collection("seller").get().addOnSuccessListener {
-            if (!it.isEmpty){
-                for (data in it.documents){
-                    val user : doc_user? = data.toObject<doc_user>(doc_user::class.java)
-                    userArrayList.add(user!!)
+        val uid = FirebaseAuth.getInstance().currentUser!!.uid
+
+        dbref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    for (data in snapshot.children){
+                        val user = data.getValue(doc_user::class.java)
+                        userArrayList.add(user!!)
+                    }
+
+                    recyclerView.adapter = MyAdapter(this@Seller_log, userArrayList)
                 }
-                recyclerView.adapter = MyAdapter(userArrayList, this)
-            }
-        }
-            .addOnFailureListener {
-                Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
             }
 
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@Seller_log, error.toString(), Toast.LENGTH_SHORT).show()
+            }
+        })
 
     }
 }

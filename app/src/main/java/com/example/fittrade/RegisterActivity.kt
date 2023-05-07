@@ -8,22 +8,16 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.fittrade.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var firebaseAuth: FirebaseAuth
-    private var db = Firebase.firestore
+    private lateinit var dbref : DatabaseReference
 
-    private lateinit var etUser: EditText
-    private lateinit var etEmail: EditText
-    private lateinit var etPass: EditText
-    private lateinit var etPhone: EditText
-    private lateinit var etPlace: EditText
-    private lateinit var etConpass: EditText
-    private lateinit var etAge: EditText
-    private  lateinit var mainsignButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -36,41 +30,42 @@ class RegisterActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        etUser = findViewById(R.id.et_user)
-        etEmail = findViewById(R.id.et_email)
-        etPass = findViewById(R.id.et_pass)
-        etPhone = findViewById(R.id.et_phone)
-        etPlace = findViewById(R.id.et_place)
-        etConpass = findViewById(R.id.et_conpass)
-        etAge = findViewById(R.id.et_age)
-        mainsignButton = findViewById(R.id.mainsignButton)
 
-        mainsignButton.setOnClickListener {
+        binding.mainsignButton.setOnClickListener {
 
-            val userName = etUser.text.toString().trim()
-            val email = etEmail.text.toString().trim()
-            val pass = etPass.text.toString().trim()
-            val conPass = etConpass.text.toString().trim()
-            val phnNo = etPhone.text.toString().trim()
-            val place = etPlace.text.toString().trim()
-            val age = etAge.text.toString().trim()
+            val userName = binding.etUser.text.toString()
+            val email = binding.etEmail.text.toString()
+            val pass = binding.etPass.text.toString()
+            val conPass = binding.etConpass.text.toString()
+            val phnNo = binding.etPhone.text.toString()
+            val place = binding.etPlace.text.toString()
+            val age = binding.etAge.text.toString()
+            val height =  " "
+            val weight = " "
+            val bmi = " "
 
             if(userName.isNotEmpty() && phnNo.isNotEmpty() && age.isNotEmpty() && place.isNotEmpty() && email.isNotEmpty() && pass.isNotEmpty() && conPass.isNotEmpty()){
                 if (pass == conPass){
                     firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener{
-                        if (it.isSuccessful){
+                        if (it.isSuccessful) {
+
+                            val userId = FirebaseAuth.getInstance().currentUser!!.uid
+
                             val userMap = hashMapOf(
                                 "userName" to userName,
+                                "userID" to userId,
                                 "email" to email,
                                 "pass" to pass,
                                 "phn" to phnNo,
                                 "place" to place,
-                                "age" to age
+                                "age" to age,
+                                "height" to height,
+                                "weight" to weight,
+                                "bmi" to bmi
                             )
 
-                            val userId = FirebaseAuth.getInstance().currentUser!!.uid
-
-                            db.collection("user").document(userId).set(userMap).addOnSuccessListener {
+                            dbref = FirebaseDatabase.getInstance().getReference("user")
+                            dbref.child(userId).setValue(userMap).addOnSuccessListener{
                                 startActivity(Intent(this, BMI_calculation::class.java))
                                 Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()
                             }.addOnFailureListener {

@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -17,7 +19,7 @@ import com.google.firebase.storage.ktx.storage
 
 class Img_Upload : AppCompatActivity() {
     private var storage = Firebase.storage
-    private var db = Firebase.firestore
+    private lateinit var dbref : DatabaseReference
     private lateinit var uri: Uri
 
     private lateinit var imageUp : ImageView
@@ -29,6 +31,8 @@ class Img_Upload : AppCompatActivity() {
         setContentView(R.layout.activity_img_upload)
 
         storage = FirebaseStorage.getInstance()
+
+        dbref = Firebase.database.reference
 
         imageUp = findViewById(R.id.upImg)
         browseBtn = findViewById(R.id.Browser)
@@ -44,6 +48,7 @@ class Img_Upload : AppCompatActivity() {
 
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
 
+
         browseBtn.setOnClickListener {
             gallaryImg.launch("image/*")
         }
@@ -57,13 +62,14 @@ class Img_Upload : AppCompatActivity() {
 
                             val imgMap = mapOf("img" to uri.toString())
 
-                            db.collection("doctor").document(uid).update(imgMap)
+                            dbref.child("doctor").child(uid).updateChildren(imgMap)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show()
                                     startActivity(Intent(this, doc_profile::class.java))
                             }.addOnFailureListener {
                                     Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
                                 }
+
                         }
                 }
         }

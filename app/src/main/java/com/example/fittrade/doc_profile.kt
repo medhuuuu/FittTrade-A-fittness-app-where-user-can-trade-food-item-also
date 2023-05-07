@@ -8,13 +8,15 @@ import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import de.hdodenhof.circleimageview.CircleImageView
 
 class doc_profile : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
-    private var db = Firebase.firestore
+
+    private lateinit var dbref : DatabaseReference
 
     private lateinit var imgProfile : CircleImageView
     private lateinit var tvName : TextView
@@ -31,6 +33,8 @@ class doc_profile : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        dbref = Firebase.database.reference
+
         imgProfile = findViewById(R.id.img)
         tvName = findViewById(R.id.tvName)
         tvJob = findViewById(R.id.tvJob)
@@ -41,15 +45,14 @@ class doc_profile : AppCompatActivity() {
 
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
 
-
-        db.collection("doctor").document(uid).get().addOnSuccessListener {
+        dbref.child("doctor").child(uid).get().addOnSuccessListener {
             if (it != null){
-                val name = it.data?.get("companyName")?.toString()
-                val email = it.data?.get("email")?.toString()
-                val phone = it.data?.get("phone")?.toString()
-                val about = it.data?.get("bio")?.toString()
-                val job = it.data?.get("job")?.toString()
-                val img = it.data?.get("img")?.toString()
+                val name = it.child("companyName")?.value.toString()
+                val email = it.child("email")?.value.toString()
+                val phone = it.child("phone")?.value.toString()
+                val about = it.child("bio")?.value.toString()
+                val job = it.child("job")?.value.toString()
+                val img = it.child("img")?.value.toString()
 
                 tvName.text = name
                 tvEmail.text = email
@@ -60,6 +63,7 @@ class doc_profile : AppCompatActivity() {
                 Glide.with(this).load(img).into(imgProfile)
             }
         }
+
 
         editBtn.setOnClickListener {
             Toast.makeText(this, "Button Clicked", Toast.LENGTH_SHORT).show()

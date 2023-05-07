@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 
-class MyAdapter(private val userlist: ArrayList<doc_user>, private val context: Context) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(private val context: Context, private val userlist: ArrayList<doc_user>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

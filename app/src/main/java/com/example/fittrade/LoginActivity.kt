@@ -7,6 +7,8 @@ import android.widget.Toast
 import com.example.fittrade.databinding.ActivityLoginBinding
 import com.example.fittrade.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -32,7 +34,9 @@ class LoginActivity : AppCompatActivity() {
 
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                     if (it.isSuccessful){
-                        startActivity(Intent(this, Choose_prog::class.java))
+                        val intent = Intent(this, Choose_prog::class.java)
+                        intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        startActivity(intent)
                     }
                     else{
                         Toast.makeText(this , it.exception.toString() , Toast.LENGTH_SHORT).show()
@@ -46,7 +50,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.loginbtn2.setOnClickListener {
-
             val email = binding.etEmail.text.toString()
             val pass = binding.etPass.text.toString()
 
@@ -70,13 +73,13 @@ class LoginActivity : AppCompatActivity() {
 
     private fun checkUserAccess(uid: String) {
 
-        val ref1 = db.collection("doctor").document(uid)
-        val ref2 = db.collection("seller").document(uid)
-        val ref3 = db.collection("gym-trainer").document(uid)
+        val ref1 = FirebaseDatabase.getInstance().getReference("doctor")
+        val ref2 = FirebaseDatabase.getInstance().getReference("seller")
+        val ref3 = FirebaseDatabase.getInstance().getReference("gym-trainer")
 
-        ref1.get().addOnSuccessListener {
+        ref1.child(uid).get().addOnSuccessListener {
             if (it!=null){
-                val job = it.data?.get("job")?.toString()
+                val job = it.child("job").value
 
                 if (job == "Doctor"){
                     val intent= Intent(this, doctor_show::class.java)
@@ -87,9 +90,9 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        ref2.get().addOnSuccessListener {
+        ref2.child(uid).get().addOnSuccessListener {
             if (it!=null){
-                val job = it.data?.get("job")?.toString()
+                val job = it.child("job").value
 
                 if (job == "Seller"){
                     val intent= Intent(this, seller_show::class.java)
@@ -100,9 +103,9 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        ref3.get().addOnSuccessListener {
+        ref3.child(uid).get().addOnSuccessListener {
             if (it!=null){
-                val job = it.data?.get("job")?.toString()
+                val job = it.child("job").value
 
                 if (job == "Gym-trainer"){
                     val intent= Intent(this, trainer_show::class.java)

@@ -13,6 +13,8 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.fittrade.databinding.ActivitySellersignupBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.Objects
@@ -20,6 +22,7 @@ import java.util.Objects
 class sellersignup : AppCompatActivity() {
     private lateinit var binding: ActivitySellersignupBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var dbref : DatabaseReference
     private var db = Firebase.firestore
 
     private lateinit var etCname : EditText
@@ -91,8 +94,12 @@ class sellersignup : AppCompatActivity() {
                 if (pass == conPass) {
                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
+
+                            val sellerId = FirebaseAuth.getInstance().currentUser!!.uid
+
                             val sellerMap = hashMapOf(
                                 "companyName" to companyName,
+                                "id" to sellerId,
                                 "email" to email,
                                 "phone" to phone,
                                 "pass" to pass,
@@ -101,27 +108,30 @@ class sellersignup : AppCompatActivity() {
                                 "img" to img
                             )
 
-                            val sellerId = FirebaseAuth.getInstance().currentUser!!.uid
 
                             if (jobText == "Doctor"){
-                                db.collection("doctor").document(sellerId).set(sellerMap).addOnSuccessListener {
-                                    /*Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()*/
+                                dbref = FirebaseDatabase.getInstance().getReference("doctor")
+                                dbref.child(sellerId).setValue(sellerMap).addOnSuccessListener{
                                     startActivity(Intent(this, doc_bio::class.java))
+                                    Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()
                                 }.addOnFailureListener {
                                     Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                                 }
                             }
                             else if (jobText == "Seller"){
-                                db.collection("seller").document(sellerId).set(sellerMap).addOnSuccessListener {
+                                dbref = FirebaseDatabase.getInstance().getReference("seller")
+                                dbref.child(sellerId).setValue(sellerMap).addOnSuccessListener{
+                                    startActivity(Intent(this, seller_bio::class.java))
                                     Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()
                                 }.addOnFailureListener {
                                     Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                                 }
                             }
                             else if (jobText == "Gym-trainer"){
-                                db.collection("gym-trainer").document(sellerId).set(sellerMap).addOnSuccessListener {
-                                    /*Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()*/
+                                dbref = FirebaseDatabase.getInstance().getReference("gym-trainer")
+                                dbref.child(sellerId).setValue(sellerMap).addOnSuccessListener{
                                     startActivity(Intent(this, Trainer_Bio::class.java))
+                                    Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()
                                 }.addOnFailureListener {
                                     Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                                 }

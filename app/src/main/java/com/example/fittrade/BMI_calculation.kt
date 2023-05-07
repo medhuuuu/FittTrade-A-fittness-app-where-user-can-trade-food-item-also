@@ -5,16 +5,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.example.fittrade.databinding.ActivityBmiCalculationBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 
 
 class BMI_calculation : AppCompatActivity() {
     private lateinit var binding: ActivityBmiCalculationBinding
 
     private lateinit var firebaseAuth: FirebaseAuth
-    private var db = Firebase.firestore
+    private lateinit var dbref : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityBmiCalculationBinding.inflate(layoutInflater)
@@ -23,6 +24,9 @@ class BMI_calculation : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
+
+        dbref = Firebase.database.reference
+
 
         binding.button.setOnClickListener {
             calculateBMI()
@@ -47,7 +51,7 @@ class BMI_calculation : AppCompatActivity() {
         intent.putExtra("value", bmivalue)
         startActivity(intent)
 
-        val bmiMap = hashMapOf(
+        val bmiMap = mapOf(
             "height" to heightStr,
             "weight" to weight,
             "bmi" to bmivalue
@@ -55,10 +59,10 @@ class BMI_calculation : AppCompatActivity() {
 
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
 
-        db.collection("bmi").document(userId).set(bmiMap).addOnSuccessListener {
+        dbref.child("user").child(userId).updateChildren(bmiMap).addOnSuccessListener {
             Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
-            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
         }
 
     }
