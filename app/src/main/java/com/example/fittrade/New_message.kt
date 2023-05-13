@@ -18,8 +18,7 @@ class New_message : AppCompatActivity() {
     private lateinit var userArrayList: ArrayList<doc_user>
     private lateinit var myAdapter: MyAdapter
     private lateinit var dbref : DatabaseReference
-
-    private var db = Firebase.firestore
+    private lateinit var db : FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_message)
@@ -27,19 +26,26 @@ class New_message : AppCompatActivity() {
 
         recyclerView= findViewById(R.id.recycle_newmsg)
         recyclerView.layoutManager = LinearLayoutManager(this)
+        /*recyclerView.adapter = myAdapter*/
         /*recyclerView.setHasFixedSize(true)*/
         userArrayList = arrayListOf()
-        db= FirebaseFirestore.getInstance()
+        /*myAdapter = MyAdapter(this, userArrayList)*/
+        db= FirebaseAuth.getInstance()
         dbref = FirebaseDatabase.getInstance().getReference("doctor")
 
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
 
         dbref.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
+                userArrayList.clear()
                 if (snapshot.exists()){
                     for (data in snapshot.children){
                         val user = data.getValue(doc_user::class.java)
-                        userArrayList.add(user!!)
+                        if(db.currentUser?.uid != user?.id){
+                            userArrayList.add(user!!)
+                        }
+
+
                     }
 
                     recyclerView.adapter = MyAdapter(this@New_message, userArrayList)
