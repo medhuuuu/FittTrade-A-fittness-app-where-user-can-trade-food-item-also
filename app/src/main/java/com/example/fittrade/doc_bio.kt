@@ -41,7 +41,7 @@ class doc_bio : AppCompatActivity() {
 
             val updateMap = mapOf("bio" to bioText)
 
-            dbref.child("doctor").child(docUid).updateChildren(updateMap).addOnSuccessListener {
+            dbref.child("doctor").child("doc list").child(docUid).updateChildren(updateMap).addOnSuccessListener {
                 Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, doctor_show::class.java))
             }.addOnFailureListener {

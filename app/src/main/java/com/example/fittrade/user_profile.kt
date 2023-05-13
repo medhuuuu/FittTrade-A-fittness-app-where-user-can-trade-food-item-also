@@ -43,7 +43,7 @@ class user_profile : AppCompatActivity() {
 
         dbref = Firebase.database.reference
 
-        dbref.child("user").child(userid).get().addOnSuccessListener {
+        dbref.child("user").child("user list").child(userid).get().addOnSuccessListener {
             if(it!=null){
                 val name = it.child("userName")?.value.toString()
                 val email = it.child("email")?.value.toString()

@@ -16,7 +16,6 @@ import com.google.firebase.ktx.Firebase
 class New_message : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var userArrayList: ArrayList<doc_user>
-    private lateinit var myAdapter: MyAdapter
     private lateinit var dbref : DatabaseReference
     private lateinit var db : FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,9 +32,8 @@ class New_message : AppCompatActivity() {
         db= FirebaseAuth.getInstance()
         dbref = FirebaseDatabase.getInstance().getReference("doctor")
 
-        val uid = FirebaseAuth.getInstance().currentUser!!.uid
 
-        dbref.addValueEventListener(object : ValueEventListener{
+        dbref.child("doc list").addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 userArrayList.clear()
                 if (snapshot.exists()){

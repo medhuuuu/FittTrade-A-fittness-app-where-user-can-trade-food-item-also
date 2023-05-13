@@ -65,7 +65,7 @@ class RegisterActivity : AppCompatActivity() {
                             )
 
                             dbref = FirebaseDatabase.getInstance().getReference("user")
-                            dbref.child(userId).setValue(userMap).addOnSuccessListener{
+                            dbref.child("user list").child(userId).setValue(userMap).addOnSuccessListener{
                                 startActivity(Intent(this, BMI_calculation::class.java))
                                 Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()
                             }.addOnFailureListener {

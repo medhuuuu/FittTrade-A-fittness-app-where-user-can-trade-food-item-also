@@ -6,110 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".exercise_provide">
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/WhiteSmoke"
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="125dp"
+        android:layout_height="43dp"
+        android:text="My Plan"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:padding="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.082"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.053" />
 
-        <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/chest" />
-
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/biceps" />
-
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/abdominal" />
-
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/triceps" />
-
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/shoulder" />
-
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/forearms" />
-
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="690dp"
+    <HorizontalScrollView
+        android:layout_width="382dp"
+        android:layout_height="153dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.173">
 
-        <LinearLayout
+        <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/forearms"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/forearms"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/forearms"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/forearms" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/forearms"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/forearms"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/forearms"/>
-
-        </LinearLayout>
-
-
-    </ScrollView>
-
+            android:layout_height="match_parent" />
+    </HorizontalScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

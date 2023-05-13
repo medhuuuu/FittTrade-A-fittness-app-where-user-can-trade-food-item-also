@@ -45,7 +45,7 @@ class doc_profile : AppCompatActivity() {
 
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
 
-        dbref.child("doctor").child(uid).get().addOnSuccessListener {
+        dbref.child("doctor").child("doc list").child(uid).get().addOnSuccessListener {
             if (it != null){
                 val name = it.child("companyName")?.value.toString()
                 val email = it.child("email")?.value.toString()

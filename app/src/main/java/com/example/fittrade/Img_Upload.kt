@@ -62,7 +62,7 @@ class Img_Upload : AppCompatActivity() {
 
                             val imgMap = mapOf("img" to uri.toString())
 
-                            dbref.child("doctor").child(uid).updateChildren(imgMap)
+                            dbref.child("doctor").child("doc list").child(uid).updateChildren(imgMap)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show()
                                     startActivity(Intent(this, doc_profile::class.java))

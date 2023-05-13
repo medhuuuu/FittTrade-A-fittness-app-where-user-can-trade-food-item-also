@@ -18,10 +18,8 @@ import com.google.firebase.ktx.Firebase
 class Seller_log : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var userArrayList: ArrayList<doc_user>
-    private lateinit var myAdapter: MyAdapter
     private lateinit var dbref : DatabaseReference
 
-    private var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,12 +27,9 @@ class Seller_log : AppCompatActivity() {
 
         recyclerView= findViewById(R.id.recycle_sellermsg)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        /*recyclerView.setHasFixedSize(true)*/
         userArrayList = arrayListOf()
-        db= FirebaseFirestore.getInstance()
-        dbref = FirebaseDatabase.getInstance().getReference("seller")
+        dbref = FirebaseDatabase.getInstance().getReference("seller").child("seller list")
 
-        val uid = FirebaseAuth.getInstance().currentUser!!.uid
 
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

@@ -59,7 +59,7 @@ class BMI_calculation : AppCompatActivity() {
 
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
 
-        dbref.child("user").child(userId).updateChildren(bmiMap).addOnSuccessListener {
+        dbref.child("user").child("user list").child(userId).updateChildren(bmiMap).addOnSuccessListener {
             Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
             Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()

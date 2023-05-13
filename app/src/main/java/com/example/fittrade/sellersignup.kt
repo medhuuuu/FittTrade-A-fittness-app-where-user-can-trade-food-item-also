@@ -110,7 +110,7 @@ class sellersignup : AppCompatActivity() {
 
 
                             if (jobText == "Doctor"){
-                                dbref = FirebaseDatabase.getInstance().getReference("doctor")
+                                dbref = FirebaseDatabase.getInstance().getReference("doctor").child("doc list")
                                 dbref.child(sellerId).setValue(sellerMap).addOnSuccessListener{
                                     startActivity(Intent(this, doc_bio::class.java))
                                     Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()
@@ -119,7 +119,7 @@ class sellersignup : AppCompatActivity() {
                                 }
                             }
                             else if (jobText == "Seller"){
-                                dbref = FirebaseDatabase.getInstance().getReference("seller")
+                                dbref = FirebaseDatabase.getInstance().getReference("seller").child("seller list")
                                 dbref.child(sellerId).setValue(sellerMap).addOnSuccessListener{
                                     startActivity(Intent(this, seller_bio::class.java))
                                     Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()
@@ -128,7 +128,7 @@ class sellersignup : AppCompatActivity() {
                                 }
                             }
                             else if (jobText == "Gym-trainer"){
-                                dbref = FirebaseDatabase.getInstance().getReference("gym-trainer")
+                                dbref = FirebaseDatabase.getInstance().getReference("gym-trainer").child("trainer list")
                                 dbref.child(sellerId).setValue(sellerMap).addOnSuccessListener{
                                     startActivity(Intent(this, Trainer_Bio::class.java))
                                     Toast.makeText(this, "Added Done", Toast.LENGTH_SHORT).show()

@@ -21,7 +21,7 @@ class chatlog_Activity : AppCompatActivity() {
     private lateinit var messageAdapter: messageAdapter
     private lateinit var messaglist : ArrayList<message>
     private lateinit var dbref : DatabaseReference
-    private var db = Firebase.firestore
+
 
     var receiverRoom : String?=null
     var senderRoom : String?=null
@@ -37,7 +37,7 @@ class chatlog_Activity : AppCompatActivity() {
         receiverRoom = senderuid + recieveruid
         supportActionBar?.title = name
 
-        db.collection("ChatChannels")
+
         dbref = FirebaseDatabase.getInstance().getReference("doctor")
         messageRecycleview = findViewById(R.id.chatRecycler)
         messagebox = findViewById(R.id.messageBox)

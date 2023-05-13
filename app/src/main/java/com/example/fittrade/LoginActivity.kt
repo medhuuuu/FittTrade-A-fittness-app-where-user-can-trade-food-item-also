@@ -73,9 +73,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun checkUserAccess(uid: String) {
 
-        val ref1 = FirebaseDatabase.getInstance().getReference("doctor")
-        val ref2 = FirebaseDatabase.getInstance().getReference("seller")
-        val ref3 = FirebaseDatabase.getInstance().getReference("gym-trainer")
+        val ref1 = FirebaseDatabase.getInstance().getReference("doctor").child("doc list")
+        val ref2 = FirebaseDatabase.getInstance().getReference("seller").child("seller list")
+        val ref3 = FirebaseDatabase.getInstance().getReference("gym-trainer").child("trainer list")
 
         ref1.child(uid).get().addOnSuccessListener {
             if (it!=null){
