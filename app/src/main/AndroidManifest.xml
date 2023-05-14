@@ -12,14 +12,17 @@
         android:theme="@style/Theme.Fittrade"
         tools:targetApi="31">
         <activity
+            android:name=".planexercise"
+            android:exported="false" />
+        <activity
             android:name=".chatlog_Activity"
             android:exported="false" />
         <activity
             android:name=".Seller_log"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".Trainer_log"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".Img_Upload"
             android:exported="false" />
@@ -34,7 +37,7 @@
         </activity>
         <activity
             android:name=".New_message"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".trainer_show"
             android:exported="true">
@@ -77,9 +80,6 @@
             android:name=".user_profile"
             android:exported="false"
             android:parentActivityName=".Choose_prog" />
-        <activity
-            android:name=".exercise_provide"
-            android:exported="false" />
         <activity
             android:name=".BMI_display"
             android:exported="false" />

@@ -19,7 +19,7 @@ class Choose_prog : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.exercise.setOnClickListener {
-            startActivity(Intent(this, exercise_provide::class.java))
+            startActivity(Intent(this, planexercise::class.java))
         }
 
         binding.apply {
