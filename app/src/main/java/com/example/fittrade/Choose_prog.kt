@@ -54,6 +54,20 @@ class Choose_prog : AppCompatActivity() {
                         startActivity(Intent(this@Choose_prog, MainActivity::class.java))
 
                     }
+                    R.id.doclog -> {
+                        startActivity(Intent(this@Choose_prog, New_message::class.java))
+
+                    }
+                    R.id.sellog -> {
+                        startActivity(Intent(this@Choose_prog, Seller_log::class.java))
+
+                    }
+
+                    R.id.tranlog -> {
+                        startActivity(Intent(this@Choose_prog, Trainer_log::class.java))
+
+                    }
+
                 }
                 true
 

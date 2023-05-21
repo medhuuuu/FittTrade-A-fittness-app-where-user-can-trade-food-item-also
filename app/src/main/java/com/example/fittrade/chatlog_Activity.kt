@@ -21,6 +21,8 @@ class chatlog_Activity : AppCompatActivity() {
     private lateinit var messageAdapter: messageAdapter
     private lateinit var messaglist : ArrayList<message>
     private lateinit var dbref : DatabaseReference
+    private lateinit var latestmsgref : DatabaseReference
+    private lateinit var latestmsgtoref : DatabaseReference
 
 
     var receiverRoom : String?=null
@@ -31,14 +33,22 @@ class chatlog_Activity : AppCompatActivity() {
 
 
         val name = intent.getStringExtra("companyName")
+
+       // val chatsender = intent.getStringExtra("senderid")
+        //val chatreciever = intent.getStringExtra("receiverid")
         val recieveruid = intent.getStringExtra("id")
+       // print(chatsender)
+       // print(chatreciever)
         val senderuid = FirebaseAuth.getInstance().currentUser?.uid
         senderRoom = recieveruid + senderuid
         receiverRoom = senderuid + recieveruid
+       // doctor_show(recieveruid!!)
         supportActionBar?.title = name
 
 
-        dbref = FirebaseDatabase.getInstance().getReference("doctor")
+        dbref = FirebaseDatabase.getInstance().getReference()
+        latestmsgref = FirebaseDatabase.getInstance().getReference("latestchat/$senderuid/$recieveruid")
+        latestmsgtoref = FirebaseDatabase.getInstance().getReference("latestchat/$recieveruid/$senderuid")
         messageRecycleview = findViewById(R.id.chatRecycler)
         messagebox = findViewById(R.id.messageBox)
         sendbtn = findViewById(R.id.sendmsgimg)
@@ -54,6 +64,7 @@ class chatlog_Activity : AppCompatActivity() {
                     for(postSnapshot in snapshot.children){
                         val message =postSnapshot.getValue(message::class.java)
                         messaglist.add(message!!)
+
                     }
 
                 }
@@ -68,12 +79,23 @@ class chatlog_Activity : AppCompatActivity() {
 
         sendbtn.setOnClickListener{
             val message = messagebox.text.toString()
-            val messageobject = message(message,senderuid)
+
+            val messageobject = message(message,senderuid, recieveruid)
+
+
+
             dbref.child("chats").child(senderRoom!!).child("messages").push()
                 .setValue(messageobject).addOnSuccessListener {
                     dbref.child("chats").child(receiverRoom!!).child("messages").push()
                         .setValue(messageobject)
                 }
+            latestmsgref.setValue(messageobject)
+            latestmsgtoref.setValue(messageobject)
+            /*latestmsgref.child("latestchat").child(senderRoom!!).child("message").push()
+                .setValue(messageobject).addOnSuccessListener {
+                    latestmsgtoref.child("latestchat").child(receiverRoom!!).child("message").push()
+                        .setValue(messageobject)
+                }*/
             messagebox.setText("")
         }
     }

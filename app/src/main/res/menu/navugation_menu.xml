@@ -21,6 +21,16 @@
         android:title="Calorie Calculation"
         android:icon="@drawable/kcalorie"
         />
+
+    <item
+        android:id="@+id/doclog"
+        android:title="Doc log" />
+    <item
+        android:id="@+id/tranlog"
+        android:title="Trainer Log" />
+    <item
+        android:id="@+id/sellog"
+        android:title="Seller log" />
     <item
         android:id="@+id/logoutnavi"
         android:title="Log Out"

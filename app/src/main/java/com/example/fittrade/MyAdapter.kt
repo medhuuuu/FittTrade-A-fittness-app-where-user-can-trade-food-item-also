@@ -22,6 +22,7 @@ class MyAdapter(val context: Context, val userlist: ArrayList<doc_user>) : Recyc
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentuser = userlist[position]
+
         holder.companyName.text= userlist[position].companyName
         holder.phone.text = userlist[position].phone
 
