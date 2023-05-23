@@ -122,8 +122,9 @@
         android:text="Sign Up"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_age" />
+        app:layout_constraintTop_toBottomOf="@+id/spinbarnew" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_pass"
@@ -188,6 +189,27 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Spinner
+        android:id="@+id/spinbarnew"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/Azure"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_age" />
+
+    <TextView
+        android:id="@+id/spinshownew"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        tools:ignore="MissingConstraints,UnknownId"
+        tools:layout_editor_absoluteX="96dp"
+        tools:layout_editor_absoluteY="777dp" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signupSeller"
         android:layout_width="220dp"
@@ -197,7 +219,7 @@
         android:text="Sign Up as Service Provider"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainsignButton" />
 

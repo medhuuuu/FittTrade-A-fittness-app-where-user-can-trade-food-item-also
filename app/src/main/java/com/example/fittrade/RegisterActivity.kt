@@ -3,9 +3,8 @@ package com.example.fittrade
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import com.example.fittrade.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -17,11 +16,39 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var dbref : DatabaseReference
+    private lateinit var etSpinner: Spinner
+    private lateinit var etJob : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        etSpinner = findViewById(R.id.spinbarnew)
+        etJob = findViewById(R.id.spinshownew)
+
+        val gender_names = arrayOf("Male", "Female", "Others")
+        val arrayAdapter= ArrayAdapter(this,android.R.layout.simple_spinner_item,gender_names)
+        etSpinner.adapter = arrayAdapter
+
+        etSpinner.onItemSelectedListener = object :
+
+            AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                parent?.getItemAtPosition(position).toString()
+                etJob.text= gender_names[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
 
         binding.signupSeller.setOnClickListener {
             startActivity(Intent(this,select_user::class.java))
@@ -40,6 +67,7 @@ class RegisterActivity : AppCompatActivity() {
             val phnNo = binding.etPhone.text.toString()
             val place = binding.etPlace.text.toString()
             val age = binding.etAge.text.toString()
+            val genderText = etJob.text.toString()
             val height =  " "
             val weight = " "
             val bmi = " "
@@ -61,7 +89,8 @@ class RegisterActivity : AppCompatActivity() {
                                 "age" to age,
                                 "height" to height,
                                 "weight" to weight,
-                                "bmi" to bmi
+                                "bmi" to bmi,
+                                "gender" to genderText
                             )
 
                             dbref = FirebaseDatabase.getInstance().getReference("user")

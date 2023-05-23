@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".planexercise">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/oswald"
+            android:text="MY PLAN"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.033"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/WhiteSmoke"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.009">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="9dp"
+                    android:src="@drawable/malebegin" />
+
+                <ImageButton
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="9dp"
+                    android:src="@drawable/maleinter" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/maleadv" />
+
+            </LinearLayout>
+
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/oswald"
+            android:text="Basic Workout"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.042"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="170dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/malearm2" />
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="170dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/malethigh2" />
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="170dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/malebelly2" />
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="170dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/malebutt2" />
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="170dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/malechest2" />
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="170dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/maleleg" />
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="170dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/maleyoga2" />
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
+
