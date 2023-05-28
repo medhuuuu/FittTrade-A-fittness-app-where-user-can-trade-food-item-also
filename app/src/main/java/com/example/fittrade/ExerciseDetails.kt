@@ -75,7 +75,6 @@ class ExerciseDetails : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                stopTimer()
             }
 
         }
