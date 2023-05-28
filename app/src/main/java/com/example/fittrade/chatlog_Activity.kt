@@ -34,21 +34,19 @@ class chatlog_Activity : AppCompatActivity() {
 
         val name = intent.getStringExtra("companyName")
 
-       // val chatsender = intent.getStringExtra("senderid")
-        //val chatreciever = intent.getStringExtra("receiverid")
+//        val chatsender = intent.getStringExtra("senderid")
+//        val chatreciever = intent.getStringExtra("receiverid")
         val recieveruid = intent.getStringExtra("id")
-       // print(chatsender)
-       // print(chatreciever)
         val senderuid = FirebaseAuth.getInstance().currentUser?.uid
         senderRoom = recieveruid + senderuid
         receiverRoom = senderuid + recieveruid
-       // doctor_show(recieveruid!!)
         supportActionBar?.title = name
 
 
         dbref = FirebaseDatabase.getInstance().getReference()
         latestmsgref = FirebaseDatabase.getInstance().getReference("latestchat/$senderuid/$recieveruid")
         latestmsgtoref = FirebaseDatabase.getInstance().getReference("latestchat/$recieveruid/$senderuid")
+
         messageRecycleview = findViewById(R.id.chatRecycler)
         messagebox = findViewById(R.id.messageBox)
         sendbtn = findViewById(R.id.sendmsgimg)

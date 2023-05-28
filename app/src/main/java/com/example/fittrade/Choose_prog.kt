@@ -1,16 +1,18 @@
 package com.example.fittrade
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.AppCompatActivity
 import com.example.fittrade.databinding.ActivityChooseProgBinding
-import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class Choose_prog : AppCompatActivity() {
+    private lateinit var dbref : DatabaseReference
     lateinit var binding: ActivityChooseProgBinding
     lateinit var toggle: ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,9 +20,35 @@ class Choose_prog : AppCompatActivity() {
         binding= ActivityChooseProgBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.exercise.setOnClickListener {
-            startActivity(Intent(this, planexercise::class.java))
+            val userId = FirebaseAuth.getInstance().currentUser!!.uid
+            dbref = FirebaseDatabase.getInstance().getReference("user").child("user list").child(userId)
+            dbref.get().addOnSuccessListener {
+                val gender = it.child("gender")?.value.toString()
+                val bmi = it.child("bmi")?.value.toString()
+
+                if (gender == "Male"){
+                    val intent = Intent(this, MaleExercise::class.java)
+                    intent.putExtra("gender", gender)
+                    intent.putExtra("bmi", bmi)
+                    startActivity(intent)
+                }
+
+                if (gender == "Female"){
+                    val intent = Intent(this, planexercise::class.java)
+                    intent.putExtra("gender", gender)
+                    intent.putExtra("bmi", bmi)
+                    startActivity(intent)
+                }
+
+            }
         }
+
+        binding.food.setOnClickListener {
+            startActivity(Intent(this, AllFoodItemsSearch::class.java))
+        }
+
 
         binding.apply {
             toggle = ActionBarDrawerToggle(

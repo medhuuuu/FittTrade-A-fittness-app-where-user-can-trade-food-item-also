@@ -7,23 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.getValue
-import com.google.firebase.firestore.auth.User
-import de.hdodenhof.circleimageview.CircleImageView
 import latestmsgclass
 
 class latestmessageAdapter(private val context: Context, private val userlist: ArrayList<latestmsgclass>) : RecyclerView.Adapter<latestmessageAdapter.MyViewHolder>() {
         var chatpartneruser: doc_user?=null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView : View = LayoutInflater.from(parent.context).inflate(R.layout.showlist,
-            parent,false)
+        val itemView : View = LayoutInflater.from(parent.context).inflate(R.layout.showlist, parent,false)
         return MyViewHolder(itemView)
     }
 
@@ -36,7 +31,7 @@ class latestmessageAdapter(private val context: Context, private val userlist: A
             chatpartnerId = userlist[position].senderid.toString()
         }
 
-        val ref = FirebaseDatabase.getInstance().getReference("/doctor/doc list/$chatpartnerId")
+        FirebaseDatabase.getInstance().getReference("/doctor/doc list/$chatpartnerId")
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     chatpartneruser = snapshot.getValue(doc_user::class.java)

@@ -54,6 +54,8 @@ class Img_Upload : AppCompatActivity() {
         }
 
         uploadBtn.setOnClickListener {
+
+            //Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show()
             storage.getReference("images").child(System.currentTimeMillis().toString())
                 .putFile(uri)
                 .addOnSuccessListener { task->

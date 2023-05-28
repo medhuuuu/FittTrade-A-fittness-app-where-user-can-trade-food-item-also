@@ -12,7 +12,16 @@
         android:theme="@style/Theme.Fittrade"
         tools:targetApi="31">
         <activity
+            android:name=".AllFoodItemsSearch"
+            android:exported="false" />
+        <activity
+            android:name=".ExerciseDetails"
+            android:exported="false" />
+        <activity
             android:name=".MaleExercise"
+            android:exported="false" />
+        <activity
+            android:name=".ExercisesActivity"
             android:exported="false" />
         <activity
             android:name=".planexercise"

@@ -47,24 +47,26 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/beginner_plan_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="9dp"
                 android:src="@drawable/girlbeg2" />
 
             <ImageButton
+                android:id="@+id/inter_plan_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="9dp"
                 android:src="@drawable/girlinter" />
 
             <ImageButton
+                android:id="@+id/advance_plan_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/advangirl" />
 
         </LinearLayout>
-
 
     </HorizontalScrollView>
 
@@ -92,42 +94,41 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9">
 
         <ImageView
+            android:id="@+id/arm"
             android:layout_width="250dp"
             android:layout_height="170dp"
             android:layout_marginLeft="80dp"
             android:src="@drawable/girlarm2" />
 
         <ImageView
+            android:id="@+id/thigh"
             android:layout_width="250dp"
             android:layout_height="170dp"
             android:layout_marginLeft="80dp"
             android:src="@drawable/girlthigh" />
 
         <ImageView
+            android:id="@+id/belly"
             android:layout_width="250dp"
             android:layout_height="170dp"
             android:layout_marginLeft="80dp"
             android:src="@drawable/girlbelly" />
 
         <ImageView
+            android:id="@+id/butt"
             android:layout_width="250dp"
             android:layout_height="170dp"
             android:layout_marginLeft="80dp"
             android:src="@drawable/girlbutt2" />
 
         <ImageView
+            android:id="@+id/chest"
             android:layout_width="250dp"
             android:layout_height="170dp"
             android:layout_marginLeft="80dp"
             android:src="@drawable/girlchest2" />
-
         <ImageView
-            android:layout_width="250dp"
-            android:layout_height="170dp"
-            android:layout_marginLeft="80dp"
-            android:src="@drawable/girlleg2" />
-
-        <ImageView
+            android:id="@+id/yoga"
             android:layout_width="250dp"
             android:layout_height="170dp"
             android:layout_marginLeft="80dp"

@@ -82,18 +82,14 @@ class doctor_show : AppCompatActivity() {
                 .addChildEventListener(object: ChildEventListener{
                     override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                         val chatMessage = snapshot.getValue(latestmsgclass::class.java)
-                        latestArrayList.add(chatMessage!!)
-                        latesthashmap[snapshot.key!!]= chatMessage
+                        latesthashmap[snapshot.key!!]= chatMessage!!
                         refreshRecyleviewmsg()
-
                     }
 
                     override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
                         val chatMessage = snapshot.getValue(latestmsgclass::class.java)
-                        latestArrayList.add(chatMessage!!)
-                        latesthashmap[snapshot.key!!]= chatMessage
+                        latesthashmap[snapshot.key!!]= chatMessage!!
                         refreshRecyleviewmsg()
-
                     }
 
                     override fun onChildRemoved(snapshot: DataSnapshot) {
@@ -110,46 +106,48 @@ class doctor_show : AppCompatActivity() {
 
                 })
 
-//            dbref.child("latestchat").child(senderuid!!)
-//                .addValueEventListener(object : ValueEventListener{
-//                    override fun onDataChange(snapshot: DataSnapshot) {
-//                       latestArrayList.clear()
-//                        for(postSnapshot in snapshot.children){
-//                            val message =postSnapshot.getValue(latestmsgclass::class.java)
-//                            latestArrayList.add(message!!)
-//
-//
-//                        }
-//
-//                        recyclerView.adapter= latestmessageAdapter(this@doctor_show, latestArrayList)
-//                    }
-//
-//                    override fun onCancelled(error: DatabaseError) {
-//                        Toast.makeText(this@doctor_show, error.toString(), Toast.LENGTH_SHORT).show()
-//                    }
-//
-//                })
-
-            /*dbref.child("latestmsg").addValueEventListener(object : ValueEventListener{
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    latestArrayList.clear()
-
-                    for (postSnapshot in snapshot.children) {
-                        val user = postSnapshot.getValue(latestmsgclass::class.java)
-                        latestArrayList.add(user!!)
+            dbref.child("latestchat").child(senderuid!!)
+                .addValueEventListener(object : ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                       latestArrayList.clear()
+                        for(postSnapshot in snapshot.children){
+                            val message =postSnapshot.getValue(latestmsgclass::class.java)
+                            latestArrayList.add(message!!)
 
 
+                        }
+
+                        recyclerView.adapter= latestmessageAdapter(this@doctor_show, latestArrayList)
                     }
-                    recyclerView.adapter = latestmessageAdapter(this@doctor_show, latestArrayList)
-                    latestmessageAdapter.notifyDataSetChanged()
 
-                }
+                    override fun onCancelled(error: DatabaseError) {
+                        Toast.makeText(this@doctor_show, error.toString(), Toast.LENGTH_SHORT).show()
+                    }
+
+                })
+
+//            dbref.child("latestmsg").addValueEventListener(object : ValueEventListener{
+//                override fun onDataChange(snapshot: DataSnapshot) {
+//                    latestArrayList.clear()
+//
+//                    for (postSnapshot in snapshot.children) {
+//                        val user = postSnapshot.getValue(latestmsgclass::class.java)
+//                        latestArrayList.add(user!!)
+//
+//
+//                    }
+//                    recyclerView.adapter = latestmessageAdapter(this@doctor_show, latestArrayList)
+//
+//
+//                }
+//
+//
+//                override fun onCancelled(error: DatabaseError) {
+//                    Toast.makeText(this@doctor_show, error.toString(), Toast.LENGTH_SHORT).show()
+//                }
+//            })
 
 
-                override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(this@doctor_show, error.toString(), Toast.LENGTH_SHORT).show()
-                }
-            })*/
             navView3.setNavigationItemSelectedListener {
                 when (it.itemId) {
                     R.id.provider_profile -> {

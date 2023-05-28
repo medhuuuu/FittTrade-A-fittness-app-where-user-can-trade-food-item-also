@@ -47,18 +47,21 @@
                 android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/beginner_plan_btn"
                     android:layout_width="400dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="9dp"
                     android:src="@drawable/malebegin" />
 
                 <ImageButton
+                    android:id="@+id/inter_plan_btn"
                     android:layout_width="400dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="9dp"
                     android:src="@drawable/maleinter" />
 
                 <ImageButton
+                    android:id="@+id/advance_plan_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/maleadv" />
@@ -92,42 +95,41 @@
             app:layout_constraintTop_toBottomOf="@+id/textView9">
 
             <ImageView
+                android:id="@+id/arm"
                 android:layout_width="250dp"
                 android:layout_height="170dp"
                 android:layout_marginLeft="80dp"
                 android:src="@drawable/malearm2" />
 
             <ImageView
+                android:id="@+id/thigh"
                 android:layout_width="250dp"
                 android:layout_height="170dp"
                 android:layout_marginLeft="80dp"
                 android:src="@drawable/malethigh2" />
 
             <ImageView
+                android:id="@+id/belly"
                 android:layout_width="250dp"
                 android:layout_height="170dp"
                 android:layout_marginLeft="80dp"
                 android:src="@drawable/malebelly2" />
 
             <ImageView
+                android:id="@+id/butt"
                 android:layout_width="250dp"
                 android:layout_height="170dp"
                 android:layout_marginLeft="80dp"
                 android:src="@drawable/malebutt2" />
 
             <ImageView
+                android:id="@+id/chest"
                 android:layout_width="250dp"
                 android:layout_height="170dp"
                 android:layout_marginLeft="80dp"
                 android:src="@drawable/malechest2" />
-
             <ImageView
-                android:layout_width="250dp"
-                android:layout_height="170dp"
-                android:layout_marginLeft="80dp"
-                android:src="@drawable/maleleg" />
-
-            <ImageView
+                android:id="@+id/yoga"
                 android:layout_width="250dp"
                 android:layout_height="170dp"
                 android:layout_marginLeft="80dp"

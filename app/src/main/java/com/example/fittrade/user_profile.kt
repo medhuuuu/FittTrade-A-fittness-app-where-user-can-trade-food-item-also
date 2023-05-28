@@ -24,7 +24,6 @@ class user_profile : AppCompatActivity() {
     private lateinit var tvheight: TextView
     private lateinit var tvage: TextView
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
