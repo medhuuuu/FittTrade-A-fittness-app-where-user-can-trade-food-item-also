@@ -46,7 +46,7 @@ class Choose_prog : AppCompatActivity() {
         }
 
         binding.food.setOnClickListener {
-            startActivity(Intent(this, AllFoodItemsSearch::class.java))
+            startActivity(Intent(this, caloriecalculation::class.java))
         }
 
 

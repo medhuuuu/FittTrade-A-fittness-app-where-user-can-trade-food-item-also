@@ -20,8 +20,8 @@
                 android:id="@+id/video_view"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"/>
-            
-            
+
+
             <Button
                 android:id="@+id/timer_btn"
                 android:layout_width="170dp"
@@ -32,7 +32,7 @@
                 android:padding="15dp"
                 android:layout_marginTop="35dp"
                 android:background="@drawable/btn_background_round" />
-            
+
             <Button
                 android:id="@+id/start_btn"
                 android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
 
 
         </LinearLayout>
-        
+
     </ScrollView>
 
 </RelativeLayout>

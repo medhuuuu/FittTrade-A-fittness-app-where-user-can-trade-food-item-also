@@ -7,18 +7,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fittrade.dataModel.ExerciseDataResponse
 import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
-import retrofit2.*
+import retrofit2.Retrofit
+import retrofit2.awaitResponse
 import retrofit2.converter.gson.GsonConverterFactory
 
+
 @OptIn(DelicateCoroutinesApi::class)
-class ExercisesActivity : AppCompatActivity() {
+class ExerciseActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ExerciseAdapter
     private lateinit var exrList: ArrayList<ExerciseDataResponse.ExerciseDataResponseItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_excercises)
+        setContentView(R.layout.activity_exercise)
 
         recyclerView = findViewById(R.id.reycle_excercise)
         exrList = arrayListOf()
@@ -37,30 +39,33 @@ class ExercisesActivity : AppCompatActivity() {
 
     }
 
+    private fun getData(type: String, gender: String, bmi: Int) {
 
-    private fun getData(type : String, gender : String, bmi : Int) {
         GlobalScope.launch(Dispatchers.IO) {
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://musclewiki.p.rapidapi.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(OkHttpClient.Builder().addInterceptor { chain ->
                     val newRequest = chain.request().newBuilder()
-                        .addHeader("X-RapidAPI-Key", "75ef70a478msh3da1c20824c8e15p13575ejsn26185c236f61")
+                        .addHeader(
+                            "X-RapidAPI-Key",
+                            "75ef70a478msh3da1c20824c8e15p13575ejsn26185c236f61"
+                        )
                         .build()
                     chain.proceed(newRequest)
                 }.build())
                 .build()
 
-            val retrofitData = retrofit.create(ExerciseInterface ::class.java)
+            val retrofitData = retrofit.create(ExerciseInterface::class.java)
 
-            if (type == "Yoga"){
+            if (type == "Yoga") {
                 val response = retrofitData.getData(type).awaitResponse()
-                withContext(Dispatchers.Main){
-                    if(response.body() != null){
+                withContext(Dispatchers.Main) {
+                    if (response.body() != null) {
                         val responseBody = response.body()!!
 
                         responseBody.forEach {
-                            if (it.Category == type){
+                            if (it.Category == type) {
                                 exrList.add(it)
                                 adapter = ExerciseAdapter(baseContext, exrList)
                             }
@@ -68,11 +73,10 @@ class ExercisesActivity : AppCompatActivity() {
                         recyclerView.adapter = adapter
                     }
                 }
-            }
-            else{
+            } else {
                 val response = retrofitData.getData("Bodyweight").awaitResponse()
-                withContext(Dispatchers.Main){
-                    if(response.body() != null){
+                withContext(Dispatchers.Main) {
+                    if (response.body() != null) {
                         val responseBody = response.body()!!
 
                         responseBody.forEach {
@@ -82,7 +86,7 @@ class ExercisesActivity : AppCompatActivity() {
                             val tertiary = it.target.Tertiary?.contains(type) ?: false
 
 
-                            if (it.Difficulty == type || primary!! || secondary!! || tertiary!!){
+                            if (it.Difficulty == type || primary!! || secondary!! || tertiary!!) {
                                 exrList.add(it)
                                 adapter = ExerciseAdapter(baseContext, exrList)
 
@@ -94,18 +98,11 @@ class ExercisesActivity : AppCompatActivity() {
                     }
 
                 }
+
             }
-
-
-
-
-
         }
 
     }
-
-}
-
 
 
 //        retrofitData.getData().enqueue(object : Callback<ExcerciseResponseData?> {
@@ -127,3 +124,8 @@ class ExercisesActivity : AppCompatActivity() {
 //
 //            }
 //        })
+
+
+
+
+}

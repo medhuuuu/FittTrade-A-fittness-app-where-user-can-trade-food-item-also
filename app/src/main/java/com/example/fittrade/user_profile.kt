@@ -1,20 +1,16 @@
 package com.example.fittrade
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
-import com.example.fittrade.databinding.ActivityUserProfileBinding
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class user_profile : AppCompatActivity() {
     private lateinit var dbref : DatabaseReference
-
     private lateinit var tvName: TextView
     private lateinit var tvEmail: TextView
     private lateinit var tvphone: TextView

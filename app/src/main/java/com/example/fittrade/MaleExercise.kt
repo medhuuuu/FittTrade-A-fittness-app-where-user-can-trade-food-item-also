@@ -1,10 +1,9 @@
 package com.example.fittrade
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.fittrade.databinding.ActivityMaleExerciseBinding
-import com.example.fittrade.databinding.ActivityPlanexerciseBinding
 
 class MaleExercise : AppCompatActivity() {
     lateinit var binding : ActivityMaleExerciseBinding
@@ -17,7 +16,7 @@ class MaleExercise : AppCompatActivity() {
         val bmi = intent.getStringExtra("bmi")
 
         binding.beginnerPlanBtn.setOnClickListener {
-            val intent = Intent(this, ExercisesActivity::class.java)
+            val intent = Intent(this, ExerciseActivity::class.java)
             intent.putExtra("type", "Beginner")
             intent.putExtra("gender", gender)
             intent.putExtra("bmi", bmi)
@@ -25,7 +24,7 @@ class MaleExercise : AppCompatActivity() {
         }
 
         binding.interPlanBtn.setOnClickListener {
-            val intent = Intent(this, ExercisesActivity::class.java)
+            val intent = Intent(this, ExerciseActivity::class.java)
             intent.putExtra("type", "Intermediate")
             intent.putExtra("gender", gender)
             intent.putExtra("bmi", bmi)
@@ -34,7 +33,7 @@ class MaleExercise : AppCompatActivity() {
 
 
         binding.advancePlanBtn.setOnClickListener {
-            val intent = Intent(this, ExercisesActivity::class.java)
+            val intent = Intent(this, ExerciseActivity::class.java)
             intent.putExtra("type", "Advanced")
             intent.putExtra("gender", gender)
             intent.putExtra("bmi", bmi)
@@ -42,7 +41,7 @@ class MaleExercise : AppCompatActivity() {
         }
 
         binding.arm.setOnClickListener {
-            val intent = Intent(this, ExercisesActivity::class.java)
+            val intent = Intent(this, ExerciseActivity::class.java)
             intent.putExtra("type", "Biceps")
             intent.putExtra("gender", gender)
             intent.putExtra("bmi", bmi)
@@ -50,7 +49,7 @@ class MaleExercise : AppCompatActivity() {
         }
 
         binding.belly.setOnClickListener {
-            val intent = Intent(this, ExercisesActivity::class.java)
+            val intent = Intent(this, ExerciseActivity::class.java)
             intent.putExtra("type", "Abdominals")
             intent.putExtra("gender", gender)
             intent.putExtra("bmi", bmi)
@@ -58,7 +57,7 @@ class MaleExercise : AppCompatActivity() {
         }
 
         binding.butt.setOnClickListener {
-            val intent = Intent(this, ExercisesActivity::class.java)
+            val intent = Intent(this, ExerciseActivity::class.java)
             intent.putExtra("type", "Glutes")
             intent.putExtra("gender", gender)
             intent.putExtra("bmi", bmi)
@@ -66,7 +65,7 @@ class MaleExercise : AppCompatActivity() {
         }
 
         binding.chest.setOnClickListener {
-            val intent = Intent(this, ExercisesActivity::class.java)
+            val intent = Intent(this, ExerciseActivity::class.java)
             intent.putExtra("type", "Chest")
             intent.putExtra("gender", gender)
             intent.putExtra("bmi", bmi)
@@ -74,7 +73,7 @@ class MaleExercise : AppCompatActivity() {
         }
 
         binding.thigh.setOnClickListener {
-            val intent = Intent(this, ExercisesActivity::class.java)
+            val intent = Intent(this, ExerciseActivity::class.java)
             intent.putExtra("type", "Quads")
             intent.putExtra("gender", gender)
             intent.putExtra("bmi", bmi)
@@ -82,7 +81,7 @@ class MaleExercise : AppCompatActivity() {
         }
 
         binding.yoga.setOnClickListener {
-            val intent = Intent(this, ExercisesActivity::class.java)
+            val intent = Intent(this, ExerciseActivity::class.java)
             intent.putExtra("type", "Yoga")
             intent.putExtra("gender", gender)
             intent.putExtra("bmi", bmi)

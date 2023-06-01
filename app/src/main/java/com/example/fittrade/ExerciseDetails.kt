@@ -1,5 +1,4 @@
 package com.example.fittrade
-
 import android.net.Uri
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -14,27 +13,29 @@ class ExerciseDetails : AppCompatActivity() {
     private lateinit var timerBtn : Button
     private lateinit var button: Button
     private lateinit var stepsText : TextView
-    private lateinit var countDownTimer: CountDownTimer
+    private lateinit var countDownTimer : CountDownTimer
     private var Mtimerunning : Boolean = true
     private var Mtimeleftmills : Long?=null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_excercise_details)
+        setContentView(R.layout.activity_exercise_details)
+
+        val url = intent.getStringArrayExtra("videoURL")
+        val steps = intent.getStringArrayExtra("steps")
+
 
         videoView = findViewById(R.id.video_view)
         timerBtn = findViewById(R.id.timer_btn)
         button = findViewById(R.id.start_btn)
         stepsText = findViewById(R.id.steps)
 
-
-        val url = intent.getStringArrayExtra("videoURL")
-        val steps = intent.getStringArrayExtra("steps")
-
+        fetchAndPlayVideo(url!!.toList())
 
         val stepsString = steps!!.joinToString("\n")
         stepsText.text = stepsString
+
 
 
         button.setOnClickListener {
@@ -46,12 +47,7 @@ class ExerciseDetails : AppCompatActivity() {
             }
         }
 
-
-        fetchAndPlayVideo(url!!.toList())
-
     }
-
-
 
     private fun  stopTimer () {
         countDownTimer.cancel()
@@ -102,9 +98,9 @@ class ExerciseDetails : AppCompatActivity() {
 
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-    }
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//    }
 
     private fun fetchAndPlayVideo(videoUrl: List<String>) {
         val mediaController = MediaController(this)
@@ -112,7 +108,7 @@ class ExerciseDetails : AppCompatActivity() {
         videoView.setMediaController(mediaController)
 
         try {
-            val uriList = videoUrl.map { Uri.parse(it) }
+//            val uriList = videoUrl.map { Uri.parse(it) }
             val uri = Uri.parse(videoUrl.first()) // Play the first video in the list
             videoView.setVideoURI(uri)
             videoView.requestFocus()
