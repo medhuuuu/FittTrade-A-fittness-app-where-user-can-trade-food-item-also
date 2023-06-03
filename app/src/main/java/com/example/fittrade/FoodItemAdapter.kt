@@ -1,6 +1,7 @@
 package com.example.fittrade
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,9 +29,21 @@ class FoodItemAdapter(val context: Context, var list: ArrayList<FoodItemInfoData
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val portion = list[position].data.portion
+        val energy = list[position].data.foodNutrients.Energy.value
+
         holder.foodName.text = list[position].data.description
-        holder.portion.text = list[position].data.portion.toString() + "g"
-        holder.energy.text = list[position].data.foodNutrients.Energy.value.toString() + list[position].data.foodNutrients.Energy.unitname.toString()
+        holder.portion.text = portion.toString() + "g"
+        holder.energy.text = energy.toString() +
+                list[position].data.foodNutrients.Energy.unitname.toString()
+
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, caloriebudget::class.java)
+            intent.putExtra("portion", portion)
+            intent.putExtra("energy", energy)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

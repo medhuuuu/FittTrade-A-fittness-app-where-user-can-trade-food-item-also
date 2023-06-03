@@ -1,16 +1,14 @@
 package com.example.fittrade
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.fittrade.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -68,9 +66,6 @@ class RegisterActivity : AppCompatActivity() {
             val place = binding.etPlace.text.toString()
             val age = binding.etAge.text.toString()
             val genderText = etJob.text.toString()
-            val height =  " "
-            val weight = " "
-            val bmi = " "
 
             if(userName.isNotEmpty() && phnNo.isNotEmpty() && age.isNotEmpty() && place.isNotEmpty() && email.isNotEmpty() && pass.isNotEmpty() && conPass.isNotEmpty()){
                 if (pass == conPass){
@@ -87,10 +82,12 @@ class RegisterActivity : AppCompatActivity() {
                                 "phn" to phnNo,
                                 "place" to place,
                                 "age" to age,
-                                "height" to height,
-                                "weight" to weight,
-                                "bmi" to bmi,
-                                "gender" to genderText
+                                "height" to "",
+                                "weight" to "",
+                                "bmi" to "",
+                                "gender" to genderText,
+                                "calorie As plan" to "",
+                                "bmr" to ""
                             )
 
                             dbref = FirebaseDatabase.getInstance().getReference("user")

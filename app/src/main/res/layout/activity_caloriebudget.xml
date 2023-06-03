@@ -54,8 +54,8 @@
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="24dp"
 
         android:text="CARBS"
         android:textSize="15sp"
@@ -66,41 +66,14 @@
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="24dp"
         android:text="FAT"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
-    <TextView
-        android:id="@+id/protein"
-        android:layout_width="30dp"
-        android:layout_height="10dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/protein_title" />
-
-    <TextView
-        android:id="@+id/carbs"
-        android:layout_width="30dp"
-        android:layout_height="10dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@+id/protein"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
-
-    <TextView
-        android:id="@+id/fat"
-        android:layout_width="30dp"
-        android:layout_height="10dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@+id/carbs"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
-
-<!--    <ImageButton-->
+    <!--    <ImageButton-->
 <!--        android:id="@+id/imageButton"-->
 <!--        android:contentDescription="addFoodItem"-->
 <!--        android:layout_width="70dp"-->
@@ -112,6 +85,36 @@
 <!--        app:layout_constraintHorizontal_bias="0.753"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/fat" />-->
+
+    <TextView
+        android:id="@+id/protein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="20dp"
+        android:text="protein"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/protein_title" />
+
+    <TextView
+        android:id="@+id/carbs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="20dp"
+        android:text="carbs"
+        app:layout_constraintStart_toEndOf="@+id/protein"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/fat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="20dp"
+        android:text="fat"
+        app:layout_constraintStart_toEndOf="@+id/carbs"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <Button
         android:id="@+id/add_btn"
@@ -127,20 +130,11 @@
 
 
     <TextView
+        android:id="@+id/calorie_intake"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="ADD FOOD"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.747"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_btn" />
-
-    <TextView
-        android:id="@+id/calorie_intake"
-        android:layout_width="100dp"
-        android:layout_height="20dp"
         android:layout_marginTop="96dp"
+        android:text="calorie"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"

@@ -1,5 +1,6 @@
 package com.example.fittrade
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -8,14 +9,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.awaitResponse
-import retrofit2.converter.gson.GsonConverterFactory
 
 class caloriecalculation : AppCompatActivity() {
     private lateinit var heightView : TextView
@@ -27,7 +20,6 @@ class caloriecalculation : AppCompatActivity() {
     private lateinit var goal : Spinner
     private lateinit var goalTextView: TextView
     private lateinit var calcuBtn: Button
-    private lateinit var calcuView: TextView
 
     private lateinit var dbref : DatabaseReference
 
@@ -43,16 +35,18 @@ class caloriecalculation : AppCompatActivity() {
         activityText = findViewById(R.id.activityleveltext)
         goal = findViewById(R.id.weightplan)
         goalTextView = findViewById(R.id.weightplanshowtext)
-        calcuView = findViewById(R.id.calculateView)
         calcuBtn = findViewById(R.id.calculateBtn)
 
         val userid = FirebaseAuth.getInstance().currentUser!!.uid
         dbref = Firebase.database.reference
 
 
-        val activityLevelNames = arrayOf("1:BMR", "2:Sedentary: little or no exercise", "3:Exercise 1-3 times/week",
-            "4:Exercise 4-5 times/week", "5:Daily exercise or intense exercise 3-4 times/week",
-            "6:Intense exercise 6-7 times/week", "7:Very intense exercise daily, or physical job")
+        val activityLevelNames = arrayOf(
+            "1.Sedentary: Little walking or no exercise",
+            "2.Lightly Active: Exercise 1-3 times/week",
+            "3.Moderately Active: Exercise 4-5 times/week",
+            "4.Very Active: Daily exercise or hard exercise",
+            "5.Extra Active: Intense exercise 6-7 times/week")
 
         val activityAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, activityLevelNames)
         actvity.adapter = activityAdapter
@@ -76,7 +70,7 @@ class caloriecalculation : AppCompatActivity() {
         }
 
 
-        val goals = arrayOf("maintain", "mildlose", "weightlose", "extremelose", "mildgain", "weightgain", "extremegain")
+        val goals = arrayOf("maintain", "weightlose", "weightgain")
 
         val goalAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, goals)
         goal.adapter = goalAdapter
@@ -93,7 +87,7 @@ class caloriecalculation : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
+
             }
 
         }
@@ -117,12 +111,13 @@ class caloriecalculation : AppCompatActivity() {
                 val heightNum = height.toDouble()*100
                 val weightNum = weight.toDouble()
 
-                val activityLevel = activityText.text.toString()
-                val activityLevelInt = activityLevel.toInt()
-
-                val goalLevel = goalTextView.text.toString()
 
                 calcuBtn.setOnClickListener {
+                    val activityLevel = activityText.text.toString()
+                    val activityLevelInt = activityLevel.toInt()
+
+                    val goalLevel = goalTextView.text.toString()
+
                     getData(ageNum, gender, heightNum, weightNum, activityLevelInt, goalLevel)
 
                 }
@@ -134,45 +129,98 @@ class caloriecalculation : AppCompatActivity() {
     }
 
     private fun getData(ageNum: Int, gender: String, heightNum: Double, weightNum: Double, activityLevel: Int, goalLevel: String) {
-        GlobalScope.launch(Dispatchers.IO){
-            try {
-                val retrofit = Retrofit.Builder()
-                    .baseUrl("https://fitness-calculator.p.rapidapi.com/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .client(OkHttpClient.Builder().addInterceptor { chain ->
-                        val newRequest = chain.request().newBuilder()
-                            .addHeader(
-                                "X-RapidAPI-Key",
-                                "75ef70a478msh3da1c20824c8e15p13575ejsn26185c236f61"
-                            ).build()
-                        chain.proceed(newRequest)
-                    }.build())
-                    .build()
 
-                val retrofitData = retrofit.create(CalorieCalculationInterface::class.java)
-
-                val queries = HashMap<String, Any>()
-                queries.put("age", ageNum)
-                queries.put("gender", gender)
-                queries.put("height", heightNum)
-                queries.put("weight", weightNum)
-                queries.put("activitylevel", activityLevel)
-                queries.put("goal", goalLevel)
-
-                val response = retrofitData.getData(queries).awaitResponse()
-                withContext(Dispatchers.Main){
-                    if (response.isSuccessful) {
-                        val responseBody = response.body()
-                        val calculate = responseBody?.data?.calorie.toString()
-                        calcuView.text = calculate
-
-                    }
-                }
-            } catch (e: Exception) {
-
-            }
+        if (gender.lowercase().equals("male")){
+            val bmr = 10*weightNum + 6.25*heightNum - 5*ageNum +5
+            getActivityLevel(activityLevel, bmr, goalLevel)
         }
 
+        else if (gender.lowercase().equals("female")){
+            val bmr = 10*weightNum + 6.25*heightNum - 5*ageNum -161
+            getActivityLevel(activityLevel, bmr, goalLevel)
+        }
+    }
 
+    private fun getActivityLevel(activityLevel: Int, bmr: Double, goalLevel: String) {
+        val userid = FirebaseAuth.getInstance().currentUser!!.uid
+
+        if (activityLevel == 1){
+            val TDEE = bmr*1.2
+            val calorie = getCalorie(goalLevel, TDEE)
+            val userMap = hashMapOf(
+                "calorie As plan" to calorie,
+                "bmr" to bmr
+            )
+            dbref.child("user").child("user list").child(userid)
+                .updateChildren(userMap as Map<String, Any>).addOnSuccessListener {
+                    val intent = Intent(this, caloriebudget::class.java)
+                    startActivity(intent)
+                }
+        }
+        else if (activityLevel == 2){
+            val TDEE = bmr*1.375
+            val calorie = getCalorie(goalLevel, TDEE)
+            val userMap = hashMapOf(
+                "calorie As plan" to calorie,
+                "bmr" to bmr
+            )
+            dbref.child("user").child("user list").child(userid)
+                .updateChildren(userMap as Map<String, Any>).addOnSuccessListener {
+                    val intent = Intent(this, caloriebudget::class.java)
+                    startActivity(intent)
+                }
+        }
+        else if (activityLevel == 3){
+            val TDEE = bmr*1.55
+            val calorie = getCalorie(goalLevel, TDEE)
+            val userMap = hashMapOf(
+                "calorie As plan" to calorie,
+                "bmr" to bmr
+            )
+            dbref.child("user").child("user list").child(userid)
+                .updateChildren(userMap as Map<String, Any>).addOnSuccessListener {
+                    val intent = Intent(this, caloriebudget::class.java)
+                    startActivity(intent)
+                }
+        }
+        else if (activityLevel == 4){
+            val TDEE = bmr*1.725
+            val calorie = getCalorie(goalLevel, TDEE)
+            val userMap = hashMapOf(
+                "calorie As plan" to calorie,
+                "bmr" to bmr
+            )
+            dbref.child("user").child("user list").child(userid)
+                .updateChildren(userMap as Map<String, Any>).addOnSuccessListener {
+                    val intent = Intent(this, caloriebudget::class.java)
+                    startActivity(intent)
+                }
+        }
+        else if (activityLevel == 5){
+            val TDEE = bmr*1.9
+            val calorie = getCalorie(goalLevel, TDEE)
+            val userMap = hashMapOf(
+                "calorie As plan" to calorie,
+                "bmr" to bmr
+            )
+            dbref.child("user").child("user list").child(userid)
+                .updateChildren(userMap as Map<String, Any>).addOnSuccessListener {
+                    val intent = Intent(this, caloriebudget::class.java)
+                    startActivity(intent)
+                }
+        }
+    }
+
+
+    fun getCalorie(goalLevel: String, TDEE: Double): Double {
+        if (goalLevel.equals("maintain"))
+            return TDEE
+        else if (goalLevel.equals("weightlose"))
+            return TDEE - 0.20 * TDEE
+
+        else if (goalLevel.equals("weightgain"))
+            return TDEE + 0.20 * TDEE
+
+        return 0.0
     }
 }
