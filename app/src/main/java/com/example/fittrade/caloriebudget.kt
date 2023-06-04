@@ -15,7 +15,7 @@ class caloriebudget : AppCompatActivity() {
     private lateinit var proteinTextView: TextView
     private lateinit var carbTextView: TextView
     private lateinit var fatTextView: TextView
-    private lateinit var calorieLeftTextView: TextView
+//    private lateinit var calorieLeftTextView: TextView
     private lateinit var button: Button
 
     private lateinit var dbref : DatabaseReference
@@ -32,7 +32,7 @@ class caloriebudget : AppCompatActivity() {
         proteinTextView = findViewById(R.id.protein)
         carbTextView = findViewById(R.id.carbs)
         fatTextView = findViewById(R.id.fat)
-        calorieLeftTextView = findViewById(R.id.calorie_left)
+//        calorieLeftTextView = findViewById(R.id.calorie_left)
         button = findViewById(R.id.add_btn)
 
 
@@ -68,7 +68,7 @@ class caloriebudget : AppCompatActivity() {
 
                     startActivity(Intent(this, AllFoodItemsSearch::class.java))
 
-                    calorieLeftTextView.text = leftCal.toString() + "Kcal"
+//                    calorieLeftTextView.text = leftCal.toString() + "Kcal"
                 }
             }
         }
