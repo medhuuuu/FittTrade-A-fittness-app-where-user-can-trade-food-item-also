@@ -13,6 +13,7 @@
         android:layout_marginTop="36dp"
         android:text="Calorie Budget"
         android:textSize="20sp"
+        android:fontFamily="@font/oswald"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,6 +47,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="24dp"
         android:text="PROTEIN"
+        android:textColor="@color/Turquoise"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -56,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="24dp"
-
+        android:textColor="@color/Turquoise"
         android:text="CARBS"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/protein_title"
@@ -69,6 +71,7 @@
         android:layout_marginStart="96dp"
         android:layout_marginTop="24dp"
         android:text="FAT"
+        android:textColor="@color/Turquoise"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -118,7 +121,7 @@
 
     <Button
         android:id="@+id/add_btn"
-        android:text="ADD FOOD"
+        android:text="FOOD Info"
         android:contentDescription="add item btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,37 +136,26 @@
         android:id="@+id/calorie_intake"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="148dp"
+        android:fontFamily="@font/oswald"
         android:text="calorie"
-        android:textSize="20sp"
+        android:textColor="@color/Turquoise"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
-    <TextView
-        android:id="@+id/calorie_left"
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="180dp"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView8" />
+    <!--    <TextView-->
+<!--        android:id="@+id/calorie_left"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:layout_marginTop="180dp"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.472"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/imageView8" />-->
 
-    <TextView
-        android:id="@+id/left_cal_title"
-        android:layout_width="60dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="216dp"
-        android:text="LEFT"
-        android:textSize="20sp"
-        android:textColor="@drawable/gradient"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.584"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

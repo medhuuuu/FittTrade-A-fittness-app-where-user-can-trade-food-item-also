@@ -46,7 +46,7 @@ class Choose_prog : AppCompatActivity() {
         }
 
         binding.food.setOnClickListener {
-            startActivity(Intent(this, caloriecalculation::class.java))
+            startActivity(Intent(this, AllFoodItemsSearch::class.java))
         }
 
 
@@ -72,7 +72,7 @@ class Choose_prog : AppCompatActivity() {
                     }
                     R.id.secondid -> {
 
-                        Toast.makeText(this@Choose_prog, "Analyzing", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@Choose_prog, caloriebudget::class.java))
                     }
                     R.id.thirditem -> {
                         Toast.makeText(this@Choose_prog, "History", Toast.LENGTH_SHORT).show()
@@ -94,6 +94,9 @@ class Choose_prog : AppCompatActivity() {
                     R.id.tranlog -> {
                         startActivity(Intent(this@Choose_prog, Trainer_log::class.java))
 
+                    }
+                    R.id.cal -> {
+                        startActivity(Intent(this@Choose_prog, caloriecalculation::class.java))
                     }
 
                 }

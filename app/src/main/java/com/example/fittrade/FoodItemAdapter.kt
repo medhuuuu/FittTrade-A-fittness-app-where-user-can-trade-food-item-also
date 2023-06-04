@@ -40,7 +40,6 @@ class FoodItemAdapter(val context: Context, var list: ArrayList<FoodItemInfoData
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, caloriebudget::class.java)
-            intent.putExtra("portion", portion)
             intent.putExtra("energy", energy)
             context.startActivity(intent)
         }

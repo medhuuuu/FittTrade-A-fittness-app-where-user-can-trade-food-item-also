@@ -9,7 +9,7 @@
         android:icon="@drawable/round_man_24"/>
     <item
         android:id="@+id/secondid"
-        android:title="Analyze"
+        android:title="Analyze Calorie"
         android:icon="@drawable/analyze" />
     <item
         android:id="@+id/thirditem"

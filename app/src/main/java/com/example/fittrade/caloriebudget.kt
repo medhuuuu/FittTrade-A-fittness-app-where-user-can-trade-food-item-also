@@ -26,7 +26,7 @@ class caloriebudget : AppCompatActivity() {
 
         val portion = intent.getStringExtra("portion")
         val energy = intent.getStringExtra("energy")
-        val energyNum = energy?.toDouble()
+
 
         calorieIntake = findViewById(R.id.calorie_intake)
         proteinTextView = findViewById(R.id.protein)
@@ -34,6 +34,7 @@ class caloriebudget : AppCompatActivity() {
         fatTextView = findViewById(R.id.fat)
         calorieLeftTextView = findViewById(R.id.calorie_left)
         button = findViewById(R.id.add_btn)
+
 
 
         val userid = FirebaseAuth.getInstance().currentUser!!.uid
@@ -58,15 +59,20 @@ class caloriebudget : AppCompatActivity() {
                 carbTextView.text = carbsDisplay + "g"
                 fatTextView.text = fatDisplay + "g"
 
+
+
                 button.setOnClickListener {
-                    val intent = Intent(this, AllFoodItemsSearch::class.java)
-                    startActivity(intent)
 
+                    val energyNum = energy?.toDouble() ?: 0.0
+                    val leftCal = calorieDisplay.toDouble() - energyNum
+
+                    startActivity(Intent(this, AllFoodItemsSearch::class.java))
+
+                    calorieLeftTextView.text = leftCal.toString() + "Kcal"
                 }
-
-//                val leftCal = calorie.toDouble() - energyNum!!
-//                calorieLeftTextView.text = leftCal.toString() + "Kcal"
             }
         }
+
+
     }
 }
