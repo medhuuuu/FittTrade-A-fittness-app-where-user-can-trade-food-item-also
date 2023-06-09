@@ -47,7 +47,7 @@ class doctor_show : AppCompatActivity() {
 
         dbref = FirebaseDatabase.getInstance().getReference()
 
-
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         recyclerView= findViewById(R.id.recycle_latest_msg_doc)
         recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         latestArrayList= arrayListOf()

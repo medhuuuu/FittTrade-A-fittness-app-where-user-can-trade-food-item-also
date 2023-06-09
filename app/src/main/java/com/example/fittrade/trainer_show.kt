@@ -61,7 +61,7 @@ class trainer_show : AppCompatActivity() {
                 }
 
             }
-
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
             dbref.child("latestchat").child(senderuid!!)
                 .addChildEventListener(object: ChildEventListener {
