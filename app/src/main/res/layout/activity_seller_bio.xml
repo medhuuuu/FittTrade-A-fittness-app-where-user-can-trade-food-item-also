@@ -65,7 +65,7 @@
         app:layout_constraintVertical_bias="0.398">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText2"
+            android:id="@+id/etbio3"
             style="@style/fontfamily2"
             android:layout_width="353dp"
             android:layout_height="135dp"
@@ -73,7 +73,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/saveButton3"
+        android:id="@+id/button3"
         style="@style/fontfamily2"
         android:layout_width="100dp"
         android:layout_height="40dp"

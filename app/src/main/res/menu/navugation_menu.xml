@@ -12,8 +12,8 @@
         android:title="Analyze Calorie"
         android:icon="@drawable/analyze" />
     <item
-        android:id="@+id/thirditem"
-        android:title="History"
+        android:id="@+id/orderhistory"
+        android:title="Order History"
         android:icon="@drawable/history"
         />
     <item
@@ -21,16 +21,13 @@
         android:title="Calorie Calculation"
         android:icon="@drawable/kcalorie"
         />
+    <item
+        android:id="@+id/purchase"
+        android:title="purchase item"
+        android:icon="@drawable/kcalorie"
+        />
 
-    <item
-        android:id="@+id/doclog"
-        android:title="Doc log" />
-    <item
-        android:id="@+id/tranlog"
-        android:title="Trainer Log" />
-    <item
-        android:id="@+id/sellog"
-        android:title="Seller log" />
+
     <item
         android:id="@+id/logoutnavi"
         android:title="Log Out"

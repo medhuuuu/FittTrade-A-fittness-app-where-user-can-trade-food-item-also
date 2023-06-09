@@ -20,6 +20,8 @@ class doctor_show : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     private lateinit var recyclerView: RecyclerView
     private lateinit var latestArrayList: ArrayList<latestmsgclass>
+    private lateinit var docarrayList: ArrayList<doc_user>
+    private lateinit var userarrayList: ArrayList<UserList>
     private lateinit var dbref : DatabaseReference
     private lateinit var db : FirebaseAuth
     private lateinit var latestAdapter: latestmessageAdapter
@@ -34,21 +36,24 @@ class doctor_show : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDoctorShowBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val senderuid = FirebaseAuth.getInstance().currentUser?.uid
 
-        val receiverId = intent.getStringExtra("id")
+       /* val receiverId = intent.getStringExtra("id")
         val senderuid = FirebaseAuth.getInstance().currentUser?.uid
         senderRoom = receiverId + senderuid
         receiverRoom = senderuid + receiverId
-
+*/
 
 
         dbref = FirebaseDatabase.getInstance().getReference()
 
 
-        recyclerView= findViewById(R.id.recycle_latest_msg)
+        recyclerView= findViewById(R.id.recycle_latest_msg_doc)
         recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         latestArrayList= arrayListOf()
-
+       /* docarrayList = arrayListOf()
+        userarrayList= arrayListOf()
+*/
         recyclerView.layoutManager = LinearLayoutManager(this)
 
 
@@ -65,7 +70,7 @@ class doctor_show : AppCompatActivity() {
             toggle.syncState()
 
 
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
             val latesthashmap= HashMap<String,latestmsgclass>()
             fun refreshRecyleviewmsg(){
                 latestArrayList.clear()
@@ -106,7 +111,7 @@ class doctor_show : AppCompatActivity() {
 
                 })
 
-            dbref.child("latestchat").child(senderuid!!)
+            /*dbref.child("latestchat").child(senderuid!!)
                 .addValueEventListener(object : ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {
                        latestArrayList.clear()
@@ -117,14 +122,14 @@ class doctor_show : AppCompatActivity() {
 
                         }
 
-                        recyclerView.adapter= latestmessageAdapter(this@doctor_show, latestArrayList)
+                        recyclerView.adapter= latestmessageAdapter(this@doctor_show, latestArrayList, docarrayList,userarrayList)
                     }
 
                     override fun onCancelled(error: DatabaseError) {
                         Toast.makeText(this@doctor_show, error.toString(), Toast.LENGTH_SHORT).show()
                     }
 
-                })
+                })*/
 
 //            dbref.child("latestmsg").addValueEventListener(object : ValueEventListener{
 //                override fun onDataChange(snapshot: DataSnapshot) {

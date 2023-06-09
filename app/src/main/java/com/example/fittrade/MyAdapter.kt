@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import de.hdodenhof.circleimageview.CircleImageView
+import latestmsgclass
 
 class MyAdapter(val context: Context, val userlist: ArrayList<doc_user>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 

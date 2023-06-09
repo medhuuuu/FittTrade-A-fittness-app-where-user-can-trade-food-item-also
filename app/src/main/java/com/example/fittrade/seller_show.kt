@@ -16,6 +16,13 @@ class seller_show : AppCompatActivity() {
         binding= ActivitySellerShowBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.addproduct.setOnClickListener {
+            startActivity(Intent(this, seller_add_item::class.java))
+        }
+        binding.viewproduct.setOnClickListener {
+            startActivity(Intent(this, seller_productlist::class.java))
+        }
+
         binding.apply {
             toggle = ActionBarDrawerToggle(
                 this@seller_show,

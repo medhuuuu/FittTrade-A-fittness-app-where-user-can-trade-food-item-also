@@ -48,6 +48,9 @@ class Choose_prog : AppCompatActivity() {
         binding.food.setOnClickListener {
             startActivity(Intent(this, AllFoodItemsSearch::class.java))
         }
+        binding.doctor.setOnClickListener {
+            startActivity(Intent(this, docandtrainer::class.java))
+        }
 
 
         binding.apply {
@@ -74,27 +77,19 @@ class Choose_prog : AppCompatActivity() {
 
                         startActivity(Intent(this@Choose_prog, caloriebudget::class.java))
                     }
-                    R.id.thirditem -> {
-                        Toast.makeText(this@Choose_prog, "History", Toast.LENGTH_SHORT).show()
+                    R.id.orderhistory -> {
+                        startActivity(Intent(this@Choose_prog, orderhistory::class.java))
                     }
 
                     R.id.logoutnavi -> {
                         startActivity(Intent(this@Choose_prog, MainActivity::class.java))
 
                     }
-                    R.id.doclog -> {
-                        startActivity(Intent(this@Choose_prog, New_message::class.java))
-
-                    }
-                    R.id.sellog -> {
-                        startActivity(Intent(this@Choose_prog, Seller_log::class.java))
+                    R.id.purchase -> {
+                        startActivity(Intent(this@Choose_prog, user_prod_show::class.java))
 
                     }
 
-                    R.id.tranlog -> {
-                        startActivity(Intent(this@Choose_prog, Trainer_log::class.java))
-
-                    }
                     R.id.cal -> {
                         startActivity(Intent(this@Choose_prog, caloriecalculation::class.java))
                     }

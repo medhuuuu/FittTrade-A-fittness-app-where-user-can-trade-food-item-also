@@ -13,32 +13,62 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import latestmsgclass
+import java.sql.Ref
 
-class latestmessageAdapter(private val context: Context, private val userlist: ArrayList<latestmsgclass>) : RecyclerView.Adapter<latestmessageAdapter.MyViewHolder>() {
-        var chatpartneruser: doc_user?=null
+class latestmessageAdapter(val context: Context,val userlist: ArrayList<latestmsgclass>) : RecyclerView.Adapter<latestmessageAdapter.MyViewHolder>() {
+
+
+    var chatpartneruser: doc_user?=null
+        var currentchatpartneruser: UserList?=null
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView : View = LayoutInflater.from(parent.context).inflate(R.layout.showlist, parent,false)
+        val itemView : View = LayoutInflater.from(parent.context).inflate(R.layout.showlist, parent,
+            false)
         return MyViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.latestmessage.text= userlist[position].message
-        val chatpartnerId: String
+
+
+        var chatpartnerId: String?= null
+
+        var chatpartnername: String? = null
+
         if(userlist[position].senderid== FirebaseAuth.getInstance().uid){
             chatpartnerId = userlist[position].receiverid.toString()
         }else{
             chatpartnerId = userlist[position].senderid.toString()
         }
 
+
+        fun onBindViewHolderUsernamelist() {
+            FirebaseDatabase.getInstance().getReference("/user/user list/$chatpartnerId").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    currentchatpartneruser = snapshot.getValue(UserList::class.java)
+                    chatpartnername = currentchatpartneruser?.userName?.toString()
+                    holder.senderid.text = chatpartnername
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    throw NotImplementedError("An operation is not implemented: Not yet implemented")
+                }
+            })
+        }
+
         FirebaseDatabase.getInstance().getReference("/doctor/doc list/$chatpartnerId")
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     chatpartneruser = snapshot.getValue(doc_user::class.java)
-
-                    holder.senderid.text= chatpartneruser?.companyName
-
+                    chatpartnername= chatpartneruser?.companyName.toString()
+                    if (chatpartnername == "null") {
+                        onBindViewHolderUsernamelist()
+                    } else {
+                        holder.senderid.text = chatpartnername
+                    }
                 }
+
 
                 override fun onCancelled(error: DatabaseError) {
                     TODO("Not yet implemented")
@@ -47,10 +77,26 @@ class latestmessageAdapter(private val context: Context, private val userlist: A
             })
 
 
-        //holder.senderid.text= userlist[position].receiverid
+
+        /*FirebaseDatabase.getInstance().getReference("/user/user list/$chatpartnerId")
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    currentchatpartneruser = snapshot.getValue(UserList::class.java)
+
+                    holder.senderid.text= currentchatpartneruser?.userName
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })*/
+
+
 
         holder.itemView.setOnClickListener{
-            val intent = Intent(context, chatlog_Activity::class.java)
+            val intent = Intent(context, latestchatlog::class.java)
             intent.putExtra("senderid", userlist[position].senderid)
             intent.putExtra("receiverid", userlist[position].receiverid)
             context.startActivity(intent)

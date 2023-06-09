@@ -50,12 +50,13 @@ class caloriebudget : AppCompatActivity() {
                 val carbs = (calorie.toDouble() - protein -fat)/4.0
 
                 val calorieDisplay = String.format("%.2f", calorie.toDouble())
+                val protiendisplay= String.format("%.2f", protein)
                 val fatDisplay = String.format("%.2f", fat)
                 val carbsDisplay = String.format("%.2f", carbs)
 
 
                 calorieIntake.text = calorieDisplay + "Kcal"
-                proteinTextView.text = protein.toString() +"g"
+                proteinTextView.text = protiendisplay +"g"
                 carbTextView.text = carbsDisplay + "g"
                 fatTextView.text = fatDisplay + "g"
 
