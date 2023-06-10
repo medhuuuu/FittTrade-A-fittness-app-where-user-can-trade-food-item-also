@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="20dp"
+        tools:context=".seller_add_item">
+
+        <TextView
+            android:id="@+id/entrytext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="product list entry"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/additem1"
+            style="@style/textinputlayout"
+            android:layout_width="310dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:hint="product Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/entrytext"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_additem1"
+                style="@style/textedit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_email"
+            style="@style/textinputlayout"
+            android:layout_width="310dp"
+
+            android:layout_height="50dp"
+            android:layout_marginTop="13dp"
+            android:hint="Enter price"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/additem1"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_additem2"
+                style="@style/textedit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_phone"
+            style="@style/textinputlayout"
+            android:layout_width="310dp"
+
+            android:layout_height="50dp"
+            android:layout_marginTop="13dp"
+            android:hint="Portion(KG/G/LIT/NO)"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_email"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_additem3"
+                style="@style/textedit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_place"
+            style="@style/textinputlayout"
+            android:layout_width="310dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="13dp"
+            android:hint="Company Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_phone"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_additem4"
+                style="@style/textedit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_pass"
+            style="@style/textinputlayout"
+            android:layout_width="310dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="13dp"
+
+            android:hint="Expire Date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_place"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_additem5"
+                style="@style/textedit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/addbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="84dp"
+            android:text="ADD to List"
+            android:textColor="@color/BlueViolet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.802"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_pass" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
