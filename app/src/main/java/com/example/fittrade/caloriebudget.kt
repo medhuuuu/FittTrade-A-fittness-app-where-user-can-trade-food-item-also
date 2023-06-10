@@ -1,5 +1,6 @@
 package com.example.fittrade
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -15,24 +16,28 @@ class caloriebudget : AppCompatActivity() {
     private lateinit var proteinTextView: TextView
     private lateinit var carbTextView: TextView
     private lateinit var fatTextView: TextView
-//    private lateinit var calorieLeftTextView: TextView
+    private lateinit var calorieLeftTextView: TextView
     private lateinit var button: Button
 
     private lateinit var dbref : DatabaseReference
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_caloriebudget)
 
-        val portion = intent.getStringExtra("portion")
         val energy = intent.getStringExtra("energy")
+//        val proteinString = intent.getStringExtra("protein")
+//        val carbsString = intent.getStringExtra("carbs")
+//        val fatString = intent.getStringExtra("fat")
+
 
 
         calorieIntake = findViewById(R.id.calorie_intake)
         proteinTextView = findViewById(R.id.protein)
         carbTextView = findViewById(R.id.carbs)
         fatTextView = findViewById(R.id.fat)
-//        calorieLeftTextView = findViewById(R.id.calorie_left)
+        calorieLeftTextView = findViewById(R.id.calorie_left)
         button = findViewById(R.id.add_btn)
 
 
@@ -50,27 +55,43 @@ class caloriebudget : AppCompatActivity() {
                 val carbs = (calorie.toDouble() - protein -fat)/4.0
 
                 val calorieDisplay = String.format("%.2f", calorie.toDouble())
-                val protiendisplay= String.format("%.2f", protein)
                 val fatDisplay = String.format("%.2f", fat)
                 val carbsDisplay = String.format("%.2f", carbs)
+                val proteinDisplay = String.format("%.2f", protein)
 
 
-                calorieIntake.text = calorieDisplay + "Kcal"
-                proteinTextView.text = protiendisplay +"g"
-                carbTextView.text = carbsDisplay + "g"
-                fatTextView.text = fatDisplay + "g"
+                calorieIntake.text = calorieDisplay + " Kcal"
+                proteinTextView.text = proteinDisplay +"g"
+                carbTextView.text = carbsDisplay + " g"
+                fatTextView.text = fatDisplay + " g"
 
 
 
                 button.setOnClickListener {
 
-                    val energyNum = energy?.toDouble() ?: 0.0
-                    val leftCal = calorieDisplay.toDouble() - energyNum
-
                     startActivity(Intent(this, AllFoodItemsSearch::class.java))
 
-//                    calorieLeftTextView.text = leftCal.toString() + "Kcal"
                 }
+
+                val energyNum = energy?.toDouble() ?: 0.0
+                val leftCal = calorieDisplay.toDouble() - energyNum
+                calorieLeftTextView.text = leftCal.toString() + "Kcal"
+
+//                val proteinNum = proteinString?.toDouble() ?: 0.00
+//                val fatNum = fatString?.toDouble() ?: 0.00
+//                val carbsNum = carbsString?.toDouble() ?: 0.00
+//
+//                val proteinResult = protein - proteinNum
+//                val fatResult = fat - fatNum
+//                val carbsResult = carbs - carbsNum
+//
+//                proteinTextView.text = proteinResult.toString() +"g"
+//                carbTextView.text = carbsResult.toString() + " g"
+//                fatTextView.text = fatResult.toString() + " g"
+
+
+
+
             }
         }
 

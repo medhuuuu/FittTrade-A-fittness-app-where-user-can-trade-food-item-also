@@ -29,18 +29,27 @@ class FoodItemAdapter(val context: Context, var list: ArrayList<FoodItemInfoData
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val description = list[position].data.description
         val portion = list[position].data.portion
         val energy = list[position].data.foodNutrients.Energy.value
+        val fat = list[position]?.data?.foodNutrients?.Fat?.fattyAcidsTotalSaturated?.value ?: 0.05
+        val protein = list[position].data.foodNutrients.Protein.value ?: 0.00
+        val carbs = list[position].data.foodNutrients.Carbonhydrate.value ?: 0.00
 
-        holder.foodName.text = list[position].data.description
+        holder.foodName.text = description
         holder.portion.text = portion.toString() + "g"
         holder.energy.text = energy.toString() +
                 list[position].data.foodNutrients.Energy.unitname.toString()
 
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, caloriebudget::class.java)
-            intent.putExtra("energy", energy)
+            val intent = Intent(context, FoodDetails::class.java)
+            intent.putExtra("name", description)
+            intent.putExtra("portion", portion.toString())
+            intent.putExtra("energy", energy.toString())
+            intent.putExtra("fat", fat.toString())
+            intent.putExtra("protein", protein.toString())
+            intent.putExtra("carbs", carbs.toString())
             context.startActivity(intent)
         }
     }

@@ -11,9 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
+        android:fontFamily="@font/oswald"
         android:text="Calorie Budget"
         android:textSize="20sp"
-        android:fontFamily="@font/oswald"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,8 +58,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="24dp"
-        android:textColor="@color/Turquoise"
         android:text="CARBS"
+        android:textColor="@color/Turquoise"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/protein_title"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -77,17 +77,17 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <!--    <ImageButton-->
-<!--        android:id="@+id/imageButton"-->
-<!--        android:contentDescription="addFoodItem"-->
-<!--        android:layout_width="70dp"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_marginTop="88dp"-->
-<!--        android:backgroundTint="@color/WhiteSmoke"-->
-<!--        android:src="@drawable/addbutton"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.753"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/fat" />-->
+    <!--        android:id="@+id/imageButton"-->
+    <!--        android:contentDescription="addFoodItem"-->
+    <!--        android:layout_width="70dp"-->
+    <!--        android:layout_height="60dp"-->
+    <!--        android:layout_marginTop="88dp"-->
+    <!--        android:backgroundTint="@color/WhiteSmoke"-->
+    <!--        android:src="@drawable/addbutton"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.753"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/fat" />-->
 
     <TextView
         android:id="@+id/protein"
@@ -121,41 +121,56 @@
 
     <Button
         android:id="@+id/add_btn"
-        android:text="FOOD Info"
-        android:contentDescription="add item btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
+        android:contentDescription="add item btn"
+        android:text="FOOD Info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.753"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fat"/>
+        app:layout_constraintTop_toBottomOf="@+id/fat" />
 
 
     <TextView
         android:id="@+id/calorie_intake"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="108dp"
         android:fontFamily="@font/oswald"
         android:text="calorie"
         android:textColor="@color/Turquoise"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
-    <!--    <TextView-->
-<!--        android:id="@+id/calorie_left"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="20dp"-->
-<!--        android:layout_marginTop="180dp"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.472"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/imageView8" />-->
+    <TextView
+        android:id="@+id/calorie_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/left_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/left_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Left"
+        android:textColor="@color/Red"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.679" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
