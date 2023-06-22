@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +15,9 @@ import com.google.firebase.database.*
 
 class cartshow : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
+    private lateinit var cartPrice: TextView
     private lateinit var userArrayList: ArrayList<productClass>
+    private lateinit var priceList: ArrayList<Double>
     private lateinit var dbref : DatabaseReference
     private lateinit var db : FirebaseAuth
     private lateinit var binding: ActivityCartshowBinding
@@ -22,6 +25,9 @@ class cartshow : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCartshowBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        cartPrice = findViewById(R.id.cart_price)
+        priceList = arrayListOf()
 
         recyclerView= findViewById(R.id.cartshow)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -45,6 +51,12 @@ class cartshow : AppCompatActivity() {
                 val user = snapshot.getValue(productClass::class.java)
                 userArrayList.add(user!!)
                 recyclerView.adapter= sellerlistadapter(this@cartshow, userArrayList)
+                priceList.add(user.price!!.toDouble())
+                var total = 0.0
+                priceList.forEach {
+                    total = total + it
+                }
+                cartPrice.text = total.toString()
 
             }
 

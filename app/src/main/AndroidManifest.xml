@@ -41,7 +41,8 @@
             android:exported="false" />
         <activity
             android:name=".caloriebudget"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Choose_prog"/>
         <activity
             android:name=".ExerciseDetails"
             android:exported="false" />

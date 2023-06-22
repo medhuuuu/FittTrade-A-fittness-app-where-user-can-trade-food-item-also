@@ -31,6 +31,7 @@
         android:layout_width="310dp"
         android:layout_height="50dp"
         android:layout_marginTop="13dp"
+        app:passwordToggleEnabled="true"
         android:hint="Enter Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
